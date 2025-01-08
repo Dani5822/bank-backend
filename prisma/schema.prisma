@@ -1,14 +1,143 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+model SuperAdmin {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
+model Admin {
+  id                 String              @id @default(auto()) @map("_id") @db.ObjectId
+  name               String
+  email              String              @unique
+  password           String
+  numberOfUser       Int                 @default(1)
+  //Sale               Sale[]
+  Purchase           Purchase[]
+  //SaleOfProduct      SaleOfProduct[]
+  //PurchaseOfProduct  PurchaseOfProduct[]
+  //Customers          Customer[]
+  //Vendor             Vendor[]
+  User               User[]
+  //profilePicture     Attachment[]
+  attachmentFilename String?
+  Expense            Expense[]
+  Payment            Payment[]
+  //Products           Products[]
+  //ReturnPurchase     ReturnPurchase[]
+  //SaleReturn         SaleReturn[]
+  //Accounts           Accounts[]
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+}
+
+// 3
+model User {
+  id                 String              @id @default(auto()) @map("_id") @db.ObjectId
+  name               String
+  Role               UserType            @default(User)
+  email              String              @unique
+  password           String
+  //ProductsSaled      SaleOfProduct[]
+  //ProductsPurchased  PurchaseOfProduct[]
+  //profilePicture     Attachment?         @relation(fields: [attachmentFilename], references: [filename])
+  //attachmentFilename String?             @unique
+  Admin              Admin               @relation(fields: [adminId], references: [id])
+  adminId            String
+  Expense            Expense[]
+  //ReturnPurchase     ReturnPurchase[]
+  //SaleReturn         SaleReturn[]
+  Payment            Payment[]
+  //Accounts           Accounts[]
+  //Sale               Sale[]
+  Purchase           Purchase[]
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+}
+
+enum UserType {
+  Manager
+  User
+}
+
+model Purchase {
+  id             String              @id @default(auto()) @map("_id") @db.ObjectId
+  total          Int?
+  Product        String
+  Vendor         String
+  Payment        Payment[]
+  Admin          Admin               @relation(fields: [adminId], references: [id])
+  adminId        String
+  User           User?               @relation(fields: [userId], references: [id])
+  userId         String?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+}
+
+
+model Payment {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  BillNo          String
+  Amount          Int
+  type            String
+  //Sale            Sale?     @relation(fields: [SaleId], references: [id])
+  SaleId          String? // relation scalar field (used in the `@relation` attribute above)
+  Purchase        Purchase? @relation(fields: [PurchaseId], references: [id])
+  PurchaseId      String? // relation scalar field (used in the `@relation` attribute above)
+  //PaymentReceived Customer? @relation(fields: [customerId], references: [id])
+  customerId      String?
+  //PaymentSent     Vendor?   @relation(fields: [vendorId], references: [id])
+  vendorId        String?
+  Admin           Admin     @relation(fields: [adminId], references: [id])
+  adminId         String
+  User            User?     @relation(fields: [userId], references: [id])
+  userId          String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Expense {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  Amount      Int
+  Category    String
+  Description String
+  User        User?    @relation(fields: [userId], references: [id])
+  userId      String?
+  Admin       Admin    @relation(fields: [adminId], references: [id])
+  adminId     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+//model Attachment {
+//  mimetype   String?
+//  filename   String    @id @map("_id") @db.ObjectId
+//  encoding   String?
+//  productsId String?
+//  User       User?
+//  Admin      Admin?    @relation(fields: [adminId], references: [id])
+//  adminId    String?
+//  createdAt  DateTime  @default(now())
+//  updatedAt  DateTime  @updatedAt
+//}
+
+
+//model Accounts {
+//  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+//  User           User?    @relation(fields: [userId], references: [id])
+//  userId         String?
+//  Admin          Admin    @relation(fields: [adminId], references: [id])
+//  adminId        String
+//  createdAt      DateTime @default(now())
+//  updatedAt      DateTime @updatedAt
+//}
