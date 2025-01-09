@@ -19,14 +19,12 @@ export class UserService {
         Expense: data.Expense ? {
           create: data.Expense.map(expense => ({
             ...expense,
-            id: expense.id,
             Bankaccount: expense.bankaccountId ? { connect: { id: expense.bankaccountId } } : undefined,
           })),
         } : undefined,
         Purchase: data.Purchase ? {
           create: data.Purchase.map(purchase => ({
             ...purchase,
-            id: purchase.id,
             Bankaccount: purchase.bankaccountId ? { connect: { id: new ObjectId(purchase.bankaccountId) } } : undefined,
           })),
         } : undefined,
