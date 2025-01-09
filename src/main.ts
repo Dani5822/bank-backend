@@ -4,7 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import { ValidationPipe } from '@nestjs/common';
 
-async function bootstrap() {
+async function main() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   
   app.enableCors({
@@ -22,4 +22,4 @@ async function bootstrap() {
   
   await app.listen(3000);
 }
-bootstrap();
+main();
