@@ -7,116 +7,122 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model SuperAdmin {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+//model SuperAdmin {
+//id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//name      String
+//email     String   @unique
+//password  String
+//createdAt DateTime @default(now())
+//updatedAt DateTime @updatedAt
+//}
 
-model Admin {
-  id                 String              @id @default(auto()) @map("_id") @db.ObjectId
-  name               String
-  email              String              @unique
-  password           String
-  numberOfUser       Int                 @default(1)
-  //Sale               Sale[]
-  Purchase           Purchase[]
-  //SaleOfProduct      SaleOfProduct[]
-  //PurchaseOfProduct  PurchaseOfProduct[]
-  //Customers          Customer[]
-  //Vendor             Vendor[]
-  User               User[]
-  //profilePicture     Attachment[]
-  attachmentFilename String?
-  Expense            Expense[]
-  Payment            Payment[]
-  //Products           Products[]
-  //ReturnPurchase     ReturnPurchase[]
-  //SaleReturn         SaleReturn[]
-  //Accounts           Accounts[]
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
-}
+//model Admin {
+//id             String         @id @default(auto()) @map("_id") @db.ObjectId
+//name           String
+//email          String         @unique
+//password       String
+//numberOfUser       Int        @default(1)
+//Sale               Sale[]
+//Purchase           Purchase[]
+//SaleOfProduct      SaleOfProduct[]
+//PurchaseOfProduct  PurchaseOfProduct[]
+//Customers          Customer[]
+//Vendor             Vendor[]
+//User               User[]
+//profilePicture     Attachment[]
+//attachmentFilename String?
+//Expense            Expense[]
+//Payment            Payment[]
+//Products           Products[]
+//ReturnPurchase     ReturnPurchase[]
+//SaleReturn         SaleReturn[]
+//Accounts           Accounts[]
+//createdAt      DateTime       @default(now())
+//updatedAt      DateTime       @updatedAt
+//Bankaccounts   BankAccounts[] @relation(fields: [BankaccountsId], references: [id])
+//BankaccountsId String[]       @db.ObjectId
+//}
 
 // 3
 model User {
-  id                 String              @id @default(auto()) @map("_id") @db.ObjectId
-  name               String
-  Role               UserType            @default(User)
-  email              String              @unique
-  password           String
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  Fristname      String
+  Lastname       String
+  Role           UserType       @default(User)
+  email          String         @unique
+  password       String
+  Expense        Expense[]
+  Purchase       Purchase[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  Accounts       BankAccounts[] @relation(fields: [BankaccountsId], references: [id])
+  BankaccountsId String[]       @db.ObjectId
   //ProductsSaled      SaleOfProduct[]
   //ProductsPurchased  PurchaseOfProduct[]
   //profilePicture     Attachment?         @relation(fields: [attachmentFilename], references: [filename])
   //attachmentFilename String?             @unique
-  Admin              Admin               @relation(fields: [adminId], references: [id])
-  adminId            String
-  Expense            Expense[]
+  //Admin     Admin      @relation(fields: [adminId], references: [id])
+  //adminId   String
   //ReturnPurchase     ReturnPurchase[]
   //SaleReturn         SaleReturn[]
-  Payment            Payment[]
+  //Payment   Payment[]
   //Accounts           Accounts[]
   //Sale               Sale[]
-  Purchase           Purchase[]
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
 }
 
 enum UserType {
-  Manager
+  Admin
   User
 }
 
 model Purchase {
-  id             String              @id @default(auto()) @map("_id") @db.ObjectId
-  total          Int?
-  Product        String
-  Vendor         String
-  Payment        Payment[]
-  Admin          Admin               @relation(fields: [adminId], references: [id])
-  adminId        String
-  User           User?               @relation(fields: [userId], references: [id])
-  userId         String?
-  createdAt      DateTime            @default(now())
-  updatedAt      DateTime            @updatedAt
+  id                 String       @id @default(auto()) @map("_id") @db.ObjectId
+  total              Int
+  Product            String
+  Vendor             String?
+  User               User?        @relation(fields: [userId], references: [id])
+  userId             String?
+  Bankaccount        BankAccounts @relation(fields: [bankaccountId], references: [id])
+  bankaccountId      String       @db.ObjectId
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  replicationammount Int          @default(1)
+  replicationmetric  String
+  replicationstart   DateTime     @default(now())
+  replicationend     DateTime     @default(now())
+  //Payment   Payment[]
 }
 
-
-model Payment {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  BillNo          String
-  Amount          Int
-  type            String
-  //Sale            Sale?     @relation(fields: [SaleId], references: [id])
-  SaleId          String? // relation scalar field (used in the `@relation` attribute above)
-  Purchase        Purchase? @relation(fields: [PurchaseId], references: [id])
-  PurchaseId      String? // relation scalar field (used in the `@relation` attribute above)
-  //PaymentReceived Customer? @relation(fields: [customerId], references: [id])
-  customerId      String?
-  //PaymentSent     Vendor?   @relation(fields: [vendorId], references: [id])
-  vendorId        String?
-  Admin           Admin     @relation(fields: [adminId], references: [id])
-  adminId         String
-  User            User?     @relation(fields: [userId], references: [id])
-  userId          String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-}
+//model Payment {
+//id            String       @id @default(auto()) @map("_id") @db.ObjectId
+//BillNo        String
+//Amount        Int
+//type          String
+//createdAt     DateTime     @default(now())
+//updatedAt     DateTime     @updatedAt
+//Bankaccount   BankAccounts @relation(fields: [bankaccountId], references: [id])
+//bankaccountId String       @db.ObjectId
+//Purchase   Purchase? @relation(fields: [PurchaseId], references: [id])
+//PurchaseId String? // relation scalar field (used in the `@relation` attribute above)
+//User       User?     @relation(fields: [userId], references: [id])
+//userId     String?
+//}
 
 model Expense {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  Amount      Int
-  Category    String
-  Description String
-  User        User?    @relation(fields: [userId], references: [id])
-  userId      String?
-  Admin       Admin    @relation(fields: [adminId], references: [id])
-  adminId     String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                 String       @id @default(auto()) @map("_id") @db.ObjectId
+  Amount             Int
+  Category           String
+  Description        String
+  User               User?        @relation(fields: [userId], references: [id])
+  userId             String?
+  replicationammount Int          @default(1)
+  replicationmetric  String
+  replicationstart   DateTime     @default(now())
+  replicationend     DateTime     @default(now())
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  Bankaccount        BankAccounts @relation(fields: [bankaccountId], references: [id])
+  bankaccountId      String       @db.ObjectId
 }
 
 //model Attachment {
@@ -131,13 +137,15 @@ model Expense {
 //  updatedAt  DateTime  @updatedAt
 //}
 
-
-//model Accounts {
-//  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-//  User           User?    @relation(fields: [userId], references: [id])
-//  userId         String?
-//  Admin          Admin    @relation(fields: [adminId], references: [id])
-//  adminId        String
-//  createdAt      DateTime @default(now())
-//  updatedAt      DateTime @updatedAt
-//}
+model BankAccounts {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  Users     User[]     @relation(fields: [userId], references: [id])
+  userId    String[]   @db.ObjectId
+  Expense   Expense[]
+  Purchase  Purchase[]
+  //Payment   Payment[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  //Admins    Admin[]    @relation(fields: [adminId], references: [id])
+  //adminId   String[]   @db.ObjectId
+}
