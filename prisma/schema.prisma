@@ -110,7 +110,7 @@ model Purchase {
 
 model Expense {
   id                 String       @id @default(auto()) @map("_id") @db.ObjectId
-  Amount             Int
+  total             Int
   Category           String
   Description        String
   User               User?        @relation(fields: [userId], references: [id])
