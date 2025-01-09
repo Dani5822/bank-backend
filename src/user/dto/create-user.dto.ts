@@ -1,15 +1,12 @@
-import { BankAccounts, Expense, Purchase, UserType } from "@prisma/client";
+import { BankAccount, Expense, Purchase, UserType } from "@prisma/client";
 
 export class CreateUserDto {
-  id: String;
-  Fristname: String;
-  Lastname: String;
+  Fristname: string;
+  Lastname: string;
   Role: UserType;
-  email: String;
-  password: String;
-  Expense: Expense[];
-  Purchase: Purchase[];
-  createdAt: Date;
-  updatedAt: Date;
-  Accounts: BankAccounts[];
+  email: string;
+  password: string;
+  Expense?: Expense[];
+  Purchase?: Purchase[];
+  Accounts: BankAccount[];
 }
