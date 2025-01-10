@@ -13,27 +13,11 @@ export class UserService {
       data: {
         Fristname: data.Fristname,
         Lastname: data.Lastname,
-        Role: data.Role,
         email: data.email,
         password: data.password,
-        Expense: data.Expense ? {
-          create: data.Expense.map(expense => ({
-            ...expense,
-            Bankaccount: expense.bankaccountId ? { connect: { id: expense.bankaccountId } } : undefined,
-          })),
-        } : undefined,
-        Purchase: data.Purchase ? {
-          create: data.Purchase.map(purchase => ({
-            ...purchase,
-            Bankaccount: purchase.bankaccountId ? { connect: { id: new ObjectId(purchase.bankaccountId) } } : undefined,
-          })),
-        } : undefined,
-        Accounts: data.Accounts ? {
-          create: data.Accounts.map(account => ({
-            ...account,
-            id: new ObjectId(account.id),
-          })),
-        } : undefined,
+        Expense: undefined,
+        Purchase: undefined,
+        Accounts: undefined,
       },
     });
   }
