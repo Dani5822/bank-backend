@@ -17,7 +17,7 @@ export class BankAccountsController {
     return this.bankAccountsService.findAll(id);
   }
 
-  @Get(':id(\\d+)')
+  @Get(':id')
   findOne(@Param('id') id: string) {
     return this.bankAccountsService.findOne(id);
   }
