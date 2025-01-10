@@ -1,14 +1,11 @@
-import { BankAccounts, User } from '@prisma/client';
+import { BankAccount, User } from '@prisma/client';
 
 export class CreateExpenseDto {
-  id: number;
   total: number;
-  category: string;
+  Category: string;
   Description: string;
-  User: User[];
-  BankAccount: BankAccounts;
-  createdAt: Date;
-  updatedAt: Date;
+  userid: string[];
+  bankaccountid: string;
   replicationammount: number;
   replicationmetric: string;
   replicationstart: Date;
