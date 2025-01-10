@@ -55,7 +55,7 @@ model User {
   Purchase       Purchase[]
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
-  Accounts       BankAccounts[] @relation(fields: [BankaccountsId], references: [id])
+  Accounts       BankAccount[] @relation(fields: [BankaccountsId], references: [id])
   BankaccountsId String[]       @db.ObjectId
   //ProductsSaled      SaleOfProduct[]
   //ProductsPurchased  PurchaseOfProduct[]
@@ -80,9 +80,9 @@ model Purchase {
   total              Int
   Product            String
   Vendor             String?
-  User               User?        @relation(fields: [userId], references: [id])
-  userId             String?
-  Bankaccount        BankAccounts @relation(fields: [bankaccountId], references: [id])
+  User               User        @relation(fields: [userId], references: [id])
+  userId             String @db.ObjectId
+  Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
   bankaccountId      String       @db.ObjectId
   createdAt          DateTime     @default(now())
   updatedAt          DateTime     @updatedAt
@@ -113,15 +113,15 @@ model Expense {
   total             Int
   Category           String
   Description        String
-  User               User?        @relation(fields: [userId], references: [id])
-  userId             String?
+  User               User      @relation(fields: [userId], references: [id])
+  userId             String    @db.ObjectId
   replicationammount Int          @default(1)
   replicationmetric  String
   replicationstart   DateTime     @default(now())
   replicationend     DateTime     @default(now())
   createdAt          DateTime     @default(now())
   updatedAt          DateTime     @updatedAt
-  Bankaccount        BankAccounts @relation(fields: [bankaccountId], references: [id])
+  Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
   bankaccountId      String       @db.ObjectId
 }
 
@@ -137,11 +137,11 @@ model Expense {
 //  updatedAt  DateTime  @updatedAt
 //}
 
-model BankAccounts {
+model BankAccount {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   Users     User[]     @relation(fields: [userId], references: [id])
   userId    String[]   @db.ObjectId
-  Expense   Expense[]
+  Expense   Expense[]   
   Purchase  Purchase[]
   //Payment   Payment[]
   createdAt DateTime   @default(now())
