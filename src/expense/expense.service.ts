@@ -20,7 +20,7 @@ export class ExpenseService {
         replicationstart: new Date(createExpenseDto.replicationstart),
         replicationend: new Date(createExpenseDto.replicationend),
         User: {
-          connect: { id: createExpenseDto.userid[0] }
+          connect: { id: createExpenseDto.userid }
         },
         Bankaccount: {
           connect: { id: createExpenseDto.bankaccountid }

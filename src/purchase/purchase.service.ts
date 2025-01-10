@@ -18,7 +18,7 @@ export class PurchaseService {
         replicationstart: new Date(createPurchaseDto.replicationstart),
         replicationend: new Date(createPurchaseDto.replicationend),
         User: {
-          connect: { id: createPurchaseDto.userid[0] }
+          connect: { id: createPurchaseDto.userid }
         },
         Bankaccount: {
           connect: { id: createPurchaseDto.bankaccountid }
