@@ -39,7 +39,18 @@ export class PurchaseService {
     return `This action updates a #${id} purchase`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} purchase`;
+  async remove(id: string) {
+    const purchase = await this.db.user.findMany({
+      where: { purchaseid: { has: id } },
+    });
+    await purchase.map(async (item) => {
+      await this.db.user.update({
+        where: { id: item.id },
+        data: {
+          purchaseid: item.purchaseid.filter((id) => id !== id),
+        },
+      });
+      this.db.purchase.delete({ where: { id: id } });
+    });
   }
 }

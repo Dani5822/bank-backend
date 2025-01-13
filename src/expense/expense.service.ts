@@ -41,7 +41,18 @@ export class ExpenseService {
     return `This action updates a #${id} expense`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} expense`;
+  async remove(id: string) {
+    const expense = await this.db.user.findMany({
+      where: { expenseid: { has: id } },
+    });
+    await expense.map(async (item) => {
+      await this.db.user.update({
+        where: { id: item.id },
+        data: {
+          expenseid: item.expenseid.filter((id) => id !== id),
+        },
+      });
+      this.db.expense.delete({ where: { id: id } });
+    });
   }
 }
