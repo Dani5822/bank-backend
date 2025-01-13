@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -10,13 +10,15 @@ export class UserService {
   constructor(db: PrismaService) {
     this.db = db;
   }
+  bcrypt = require('bcrypt');
+  saltRounds = 10;
   create(data: CreateUserDto) {
     return this.db.user.create({
       data: {
         Fristname: data.Fristname,
         Lastname: data.Lastname,
         email: data.email,
-        password: data.password,
+        password: this.bcrypt.has(data.password, this.saltRounds),
         Expense: undefined,
         Purchase: undefined,
         Accounts: undefined,
@@ -78,5 +80,19 @@ export class UserService {
     }
 
     throw new Error('User not found');
+  }
+
+  async login(email: string, password: string) {
+    let x= await this.db.user.findFirst({
+      where: { email: email },
+    });
+    if(!x){
+      throw new NotFoundException('User not found');
+    }
+    if(x.password==this.bcrypt.comapre(password,x.password)){
+      return x;
+    }else{
+      throw new Error('Invalid password or email');
+    }
   }
 }

@@ -21,6 +21,10 @@ export class UserController {
   findOne(@Param('id') id: string) {
     return this.userService.findOne(id);
   }
+  @Post('login')
+  login(@Body('email') email: string, @Body('password') password: string) {
+    return this.userService.login(email, password);
+  }
 
   @Get('userbank/:id')
   findOnewithbankaccount(@Param('id') id: string) {
