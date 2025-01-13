@@ -12,9 +12,9 @@ export class BankAccountsController {
     return this.bankAccountsService.create(createBankAccountDto);
   }
 
-  @Get('all/:id(\\d+)')
-  findAll(@Param('id') id: string) {
-    return this.bankAccountsService.findAll(id);
+  @Get('all/:id')
+  findAllbyUserId(@Param('id') id: string) {
+    return this.bankAccountsService.findAllbyUserId(id);
   }
 
   @Get(':id')
@@ -22,12 +22,14 @@ export class BankAccountsController {
     return this.bankAccountsService.findOne(id);
   }
 
-  @Patch(':id(\\d+)')
-  update(@Param('id') id: string, @Body() updateBankAccountDto: UpdateBankAccountDto) {
-    return this.bankAccountsService.update(id, updateBankAccountDto);
+  
+
+  @Patch('/user/:id')
+  async updateuser(@Param('id') id: string, @Body() updateBankAccountDto: UpdateBankAccountDto) {
+    return this.bankAccountsService.updateuser(id, updateBankAccountDto);
   }
 
-  @Delete(':id(\\d+)')
+  @Delete(':id')
   remove(@Param('id') id: string) {
     return this.bankAccountsService.remove(id);
   }

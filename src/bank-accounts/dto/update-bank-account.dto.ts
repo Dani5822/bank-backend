@@ -3,7 +3,6 @@ import { CreateBankAccountDto } from './create-bank-account.dto';
 import { Expense, Purchase, User } from '@prisma/client';
 
 export class UpdateBankAccountDto extends PartialType(CreateBankAccountDto) {
-    User: User[];
-    Expenses: Expense[];
-    Purchase: Purchase[];
+    expenseid:string;
+    purchaseid:string;
 }
