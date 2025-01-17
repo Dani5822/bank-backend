@@ -51,10 +51,10 @@ model User {
   Role           UserType      @default(User)
   email          String        @unique
   password       String
-  Expense        Expense[]     
+  Expense        Expense[]
   expenseid      String[]      @db.ObjectId
-  Income       Income[]   
-  Incomeid     String[]      @db.ObjectId
+  Income         Income[]
+  Incomeid       String[]      @db.ObjectId
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
   Accounts       BankAccount[] @relation(fields: [BankaccountsId], references: [id])
@@ -83,8 +83,8 @@ model Income {
   Category           String
   Vendor             String?
   Description        String
-  User               User      @relation(fields: [userId], references: [id])
-  userId             String    @db.ObjectId
+  User               User        @relation(fields: [userId], references: [id])
+  userId             String      @db.ObjectId
   Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
   bankaccountId      String      @db.ObjectId
   createdAt          DateTime    @default(now())
@@ -116,8 +116,8 @@ model Expense {
   Category           String
   Vendor             String?
   Description        String
-  User               User      @relation(fields: [userId], references: [id])
-  userId             String    @db.ObjectId
+  User               User        @relation(fields: [userId], references: [id])
+  userId             String      @db.ObjectId
   replicationammount Int         @default(1)
   replicationmetric  String
   replicationstart   DateTime    @default(now())
@@ -140,14 +140,14 @@ model Expense {
 //}
 
 model BankAccount {
-  id        String     @id @default(auto()) @map("_id") @db.ObjectId
-  Users     User[]     @relation(fields: [userId], references: [id])
-  userId    String[]   @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  Users     User[]    @relation(fields: [userId], references: [id])
+  userId    String[]  @db.ObjectId
   total     Float
   Expense   Expense[]
-  Income  Income[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  Income    Income[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   //Admin     User[]     @relation(fields: [adminid], references: [id])
   //adminid    String[]   @db.ObjectId
   //Payment   Payment[]

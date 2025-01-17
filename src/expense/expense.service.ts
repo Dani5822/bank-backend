@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { PrismaService } from 'src/prisma.service';
+import { disconnect } from 'process';
 
 @Injectable()
 export class ExpenseService {
@@ -33,29 +34,15 @@ export class ExpenseService {
     return `This action returns all expense`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} expense`;
+  findOne(id: string) {
+    return this.db.expense.findUnique({ where: { id: id }, include: { User: true,Bankaccount:true} });
   }
 
-  update(id: number, updateExpenseDto: UpdateExpenseDto) {
+  update(id: string, updateExpenseDto: UpdateExpenseDto) {
     return `This action updates a #${id} expense`;
   }
 
   async remove(id: string) {
-    const users = await this.db.user.findMany({
-      where: { expenseid: { has: id } },
-      include: { Expense: true },
-    });
-    await users.map(async (item) => {
-      await this.db.user.update({
-        where: { id: item.id },
-        data: {
-          Expense: {
-            disconnect: { id: id },
-          },
-        },
-      });
-      this.db.expense.delete({ where: { id: id } });
-    });
+    return this.db.expense.delete({ where: { id: id } });
   }
 }
