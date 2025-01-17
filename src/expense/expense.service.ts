@@ -14,11 +14,11 @@ export class ExpenseService {
       data: {
         total: createExpenseDto.total,
         Category: createExpenseDto.Category,
+        Vendor: createExpenseDto.vendor,
         Description: createExpenseDto.Description,
         replicationammount: createExpenseDto.replicationammount,
         replicationmetric: createExpenseDto.replicationmetric,
         replicationstart: new Date(createExpenseDto.replicationstart),
-        replicationend: new Date(createExpenseDto.replicationend),
         User: {
           connect: { id: createExpenseDto.userid }
         },
@@ -42,14 +42,17 @@ export class ExpenseService {
   }
 
   async remove(id: string) {
-    const expense = await this.db.user.findMany({
+    const users = await this.db.user.findMany({
       where: { expenseid: { has: id } },
+      include: { Expense: true },
     });
-    await expense.map(async (item) => {
+    await users.map(async (item) => {
       await this.db.user.update({
         where: { id: item.id },
         data: {
-          expenseid: item.expenseid.filter((id) => id !== id),
+          Expense: {
+            disconnect: { id: id },
+          },
         },
       });
       this.db.expense.delete({ where: { id: id } });

@@ -12,11 +12,12 @@ export class BankAccountsService {
   create(createBankAccountDto: CreateBankAccountDto) {
     return this.db.bankAccount.create({
       data: {
+        total: 0,
         Users: {
           connect: { id: createBankAccountDto.userid },
         },
         Expense: undefined,
-        Purchase: undefined,
+        Income: undefined,
       },
     });
   }

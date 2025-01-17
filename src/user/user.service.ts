@@ -10,17 +10,17 @@ export class UserService {
   constructor(db: PrismaService) {
     this.db = db;
   }
-  bcrypt = require('bcrypt');
-  saltRounds = 10;
-  create(data: CreateUserDto) {
+  async create(data: CreateUserDto) {
+    const bcrypt = require('bcrypt');
+    const saltRounds = 10;
     return this.db.user.create({
       data: {
         Fristname: data.Fristname,
         Lastname: data.Lastname,
         email: data.email,
-        password: this.bcrypt.has(data.password, this.saltRounds),
+        password: await bcrypt.hash(data.password, saltRounds),
         Expense: undefined,
-        Purchase: undefined,
+        Income: undefined,
         Accounts: undefined,
       },
     });
@@ -83,13 +83,14 @@ export class UserService {
   }
 
   async login(email: string, password: string) {
+    const bcrypt = require('bcrypt');
     let x= await this.db.user.findFirst({
       where: { email: email },
     });
     if(!x){
       throw new NotFoundException('User not found');
     }
-    if(x.password==this.bcrypt.comapre(password,x.password)){
+    if(x.password== await bcrypt.comapre(password,x.password)){
       return x;
     }else{
       throw new Error('Invalid password or email');

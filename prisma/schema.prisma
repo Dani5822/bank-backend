@@ -23,9 +23,9 @@ generator client {
 //password       String
 //numberOfUser       Int        @default(1)
 //Sale               Sale[]
-//Purchase           Purchase[]
+//Income           Income[]
 //SaleOfProduct      SaleOfProduct[]
-//PurchaseOfProduct  PurchaseOfProduct[]
+//IncomeOfProduct  IncomeOfProduct[]
 //Customers          Customer[]
 //Vendor             Vendor[]
 //User               User[]
@@ -34,7 +34,7 @@ generator client {
 //Expense            Expense[]
 //Payment            Payment[]
 //Products           Products[]
-//ReturnPurchase     ReturnPurchase[]
+//ReturnIncome     ReturnIncome[]
 //SaleReturn         SaleReturn[]
 //Accounts           Accounts[]
 //createdAt      DateTime       @default(now())
@@ -53,19 +53,19 @@ model User {
   password       String
   Expense        Expense[]     
   expenseid      String[]      @db.ObjectId
-  Purchase       Purchase []   
-  purchaseid     String[]      @db.ObjectId
+  Income       Income[]   
+  Incomeid     String[]      @db.ObjectId
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
   Accounts       BankAccount[] @relation(fields: [BankaccountsId], references: [id])
   BankaccountsId String[]      @db.ObjectId
   //ProductsSaled      SaleOfProduct[]
-  //ProductsPurchased  PurchaseOfProduct[]
+  //ProductsIncomed  IncomeOfProduct[]
   //profilePicture     Attachment?         @relation(fields: [attachmentFilename], references: [filename])
   //attachmentFilename String?             @unique
   //Admin     Admin      @relation(fields: [adminId], references: [id])
   //adminId   String
-  //ReturnPurchase     ReturnPurchase[]
+  //ReturnIncome     ReturnIncome[]
   //SaleReturn         SaleReturn[]
   //Payment   Payment[]
   //Accounts           Accounts[]
@@ -77,11 +77,12 @@ enum UserType {
   User
 }
 
-model Purchase {
+model Income {
   id                 String      @id @default(auto()) @map("_id") @db.ObjectId
   total              Int
-  Product            String
+  Category           String
   Vendor             String?
+  Description        String
   User               User      @relation(fields: [userId], references: [id])
   userId             String    @db.ObjectId
   Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
@@ -103,8 +104,8 @@ model Purchase {
 //updatedAt     DateTime     @updatedAt
 //Bankaccount   BankAccounts @relation(fields: [bankaccountId], references: [id])
 //bankaccountId String       @db.ObjectId
-//Purchase   Purchase? @relation(fields: [PurchaseId], references: [id])
-//PurchaseId String? // relation scalar field (used in the `@relation` attribute above)
+//Income   Income? @relation(fields: [IncomeId], references: [id])
+//IncomeId String? // relation scalar field (used in the `@relation` attribute above)
 //User       User?     @relation(fields: [userId], references: [id])
 //userId     String?
 //}
@@ -113,13 +114,13 @@ model Expense {
   id                 String      @id @default(auto()) @map("_id") @db.ObjectId
   total              Int
   Category           String
+  Vendor             String?
   Description        String
   User               User      @relation(fields: [userId], references: [id])
   userId             String    @db.ObjectId
   replicationammount Int         @default(1)
   replicationmetric  String
   replicationstart   DateTime    @default(now())
-  replicationend     DateTime    @default(now())
   createdAt          DateTime    @default(now())
   updatedAt          DateTime    @updatedAt
   Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
@@ -142,8 +143,9 @@ model BankAccount {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   Users     User[]     @relation(fields: [userId], references: [id])
   userId    String[]   @db.ObjectId
+  total     Float
   Expense   Expense[]
-  Purchase  Purchase[]
+  Income  Income[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   //Admin     User[]     @relation(fields: [adminid], references: [id])
