@@ -27,7 +27,7 @@ export class UserService {
   }
 
   findAll() {
-    return 'This action returns all bankAccounts';
+    return this.db.user.findMany();
   }
 
   findOne(id: string) {
