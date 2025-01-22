@@ -13,6 +13,7 @@ export class BankAccountsService {
     return this.db.card.create({
       data: {
         total: 0,
+        currency: createBankAccountDto.currency,
         Users: {
           connect: { id: createBankAccountDto.userid },
         },

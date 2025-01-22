@@ -1,11 +1,14 @@
+import { Category, Metric } from "@prisma/client";
+
+
 export class CreateExpenseDto {
   total: number;
-  Category: string;
+  Category: Category;
   vendor: string;
   Description: string;
   userid: string;
   bankaccountid: string;
   repeatammount: number;
-  repeatmetric: string;
+  repeatmetric: Metric;
   repeatstart: Date;
 }
