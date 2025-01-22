@@ -17,13 +17,13 @@ export class ExpenseService {
         category: createExpenseDto.Category,
         vendor: createExpenseDto.vendor,
         description: createExpenseDto.Description,
-        repeatammount: createExpenseDto.repeatammount,
-        repeatmetric: createExpenseDto.repeatmetric,
-        repeatstart: new Date(createExpenseDto.repeatstart),
+        repeatAmmount: createExpenseDto.repeatammount,
+        repeatMetric: createExpenseDto.repeatmetric,
+        repeatStart: new Date(createExpenseDto.repeatstart),
         User: {
           connect: { id: createExpenseDto.userid }
         },
-        Card: {
+        Account: {
           connect: { id: createExpenseDto.bankaccountid }
         }
       }
@@ -35,7 +35,7 @@ export class ExpenseService {
   }
 
   findOne(id: string) {
-    return this.db.expense.findUnique({ where: { id: id }, include: { User: true,Card:true} });
+    return this.db.expense.findUnique({ where: { id: id }, include: { User: true,Account:true} });
   }
 
   update(id: string, updateExpenseDto: UpdateExpenseDto) {

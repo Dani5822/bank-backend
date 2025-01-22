@@ -15,13 +15,13 @@ export class UserService {
     const saltRounds = 10;
     return this.db.user.create({
       data: {
-        firstname: data.firstname,
-        lastname: data.lastname,
+        firstName: data.firstname,
+        lastName: data.lastname,
         email: data.email,
         password: await bcrypt.hash(data.password, saltRounds),
-        Expense: undefined,
-        Income: undefined,
-        Cards: undefined,
+        Expenses: undefined,
+        Incomes: undefined,
+        Accounts: undefined,
       },
     });
   }
@@ -36,7 +36,7 @@ export class UserService {
   findOnewithbankaccount(id: string) {
     return this.db.user.findUnique({
       where: { id: id },
-      include: { Cards: true },
+      include: { Accounts: true },
     });
   }
 
@@ -44,7 +44,7 @@ export class UserService {
     return this.db.user.update({
       where: { id: id },
       data: {
-        Cards: {
+        Accounts: {
           connect: { id: updateUserDto.bankaccountid },
         },
       },
@@ -58,19 +58,19 @@ export class UserService {
   async remove(id: string) {
     const user = await this.db.user.findUnique({
       where: { id: id },
-      include: { Cards: true },
+      include: { Accounts: true },
     });
-    if (user && user.Cards.length === 0) {
+    if (user && user.Accounts.length === 0) {
       return this.db.user.delete({ where: { id: id } });
     } else if (user) {
-      const bankaccountswithuser = await this.db.card.findMany({
+      const bankaccountswithuser = await this.db.account.findMany({
         where: { userId: { has: id } },
       });
       await bankaccountswithuser.map(async (item) => {
         if (item.userId.length === 1) {
           await new BankAccountsService(this.db).remove(item.id);
         } else {
-          await this.db.card.update({
+          await this.db.account.update({
             where: { id: item.id },
             data: { userId: item.userId.filter((user) => user !== id) },
           });

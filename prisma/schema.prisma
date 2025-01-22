@@ -69,19 +69,19 @@ enum Metric {
 // 3
 model User {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  firstname String
-  lastname  String
+  firstName String
+  lastName  String
   role      UserType  @default(User)
   email     String    @unique
   password  String
   Expenses  Expense[]
-  expenseid String[]  @db.ObjectId
+  expenseId String[]  @db.ObjectId
   Incomes   Income[]
-  incomeid  String[]  @db.ObjectId
-  createdat DateTime  @default(now())
-  updatedat DateTime  @updatedAt
-  Cards     Card[]    @relation(fields: [cardid], references: [id])
-  cardid    String[]  @db.ObjectId
+  incomeId  String[]  @db.ObjectId
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Accounts     Account[]    @relation(fields: [accountId], references: [id])
+  accountId    String[]  @db.ObjectId
   //ProductsSaled      SaleOfProduct[]
   //ProductsIncomed  IncomeOfProduct[]
   //profilePicture     Attachment?         @relation(fields: [attachmentFilename], references: [filename])
@@ -103,14 +103,14 @@ model Income {
   description   String
   User          User     @relation(fields: [userId], references: [id])
   userId        String   @db.ObjectId
-  Card          Card     @relation(fields: [cardId], references: [id])
-  cardId        String   @db.ObjectId
-  createdat     DateTime @default(now())
-  updatedat     DateTime @updatedAt
-  repeatammount Int      @default(1)
-  repeatmetric  Metric   @default(Day)
-  repeatstart   DateTime @default(now())
-  repeatend     DateTime @default(now())
+  Account          Account     @relation(fields: [accountId], references: [id])
+  accountId        String   @db.ObjectId
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  repeatAmmount Int      @default(1)
+  repeatMetric  Metric   @default(Day)
+  repeatStart   DateTime @default(now())
+  repeatEnd     DateTime @default(now())
   //Payment   Payment[]
 }
 
@@ -137,14 +137,14 @@ model Expense {
   description   String
   User          User     @relation(fields: [userId], references: [id])
   userId        String   @db.ObjectId
-  createdat     DateTime @default(now())
-  updatedat     DateTime @updatedAt
-  Card          Card     @relation(fields: [cardId], references: [id])
-  cardId        String   @db.ObjectId
-  repeatammount Int      @default(1)
-  repeatmetric  Metric   @default(Day) //tesztelésig
-  repeatstart   DateTime @default(now())
-  repeatend     DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  Account          Account     @relation(fields: [accountId], references: [id])
+  accountId        String   @db.ObjectId
+  repeatAmmount Int      @default(1)
+  repeatMetric  Metric   @default(Day) //tesztelésig
+  repeatStart   DateTime @default(now())
+  repeatEnd     DateTime @default(now())
 }
 
 //model Attachment {
@@ -159,15 +159,15 @@ model Expense {
 //  updatedAt  DateTime  @updatedAt
 //}
 
-model Card {
+model Account {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   Users     User[]    @relation(fields: [userId], references: [id])
   userId    String[]  @db.ObjectId
   total     Float
-  Expense   Expense[]
-  Income    Income[]
-  createdat DateTime  @default(now())
-  updatedat DateTime  @updatedAt
+  Expenses   Expense[]
+  Incomes    Income[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   currency  Currency  @default(HUF)
   //Admin     User[]     @relation(fields: [adminid], references: [id])
   //adminid    String[]   @db.ObjectId
