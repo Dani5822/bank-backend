@@ -90,7 +90,7 @@ export class UserService {
     if(!x){
       throw new NotFoundException('User not found');
     }
-    if(x.password== await bcrypt.comapre(password,x.password)){
+    if(await bcrypt.compare(password,x.password)){
       return x;
     }else{
       throw new Error('Invalid password or email');
