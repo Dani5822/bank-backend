@@ -16,13 +16,13 @@ export class PurchaseService {
         category: createPurchaseDto.category,
         description: createPurchaseDto.description,
         vendor: createPurchaseDto.Vendor,
-        repeatammount: createPurchaseDto.repeatammount,
-        repeatmetric: createPurchaseDto.repeatmetric,
-        repeatstart: new Date(createPurchaseDto.repeatstart),
+        repeatAmmount: createPurchaseDto.repeatammount,
+        repeatMetric: createPurchaseDto.repeatmetric,
+        repeatStart: new Date(createPurchaseDto.repeatstart),
         User: {
           connect: { id: createPurchaseDto.userid },
         },
-        Card: {
+        Account: {
           connect: { id: createPurchaseDto.bankaccountid },
         },
       },
@@ -45,13 +45,13 @@ export class PurchaseService {
         category: updatePurchaseDto.category,
         description: updatePurchaseDto.description,
         vendor: updatePurchaseDto.Vendor,
-        repeatammount: updatePurchaseDto.repeatammount,
-        repeatmetric: updatePurchaseDto.repeatmetric,
-        repeatstart: new Date(updatePurchaseDto.repeatstart),
+        repeatAmmount: updatePurchaseDto.repeatammount,
+        repeatMetric: updatePurchaseDto.repeatmetric,
+        repeatStart: new Date(updatePurchaseDto.repeatstart),
         User: {
           connect: { id: updatePurchaseDto.userid },
         },
-        Card: {
+        Account: {
           connect: { id: updatePurchaseDto.bankaccountid },
         },
       },
