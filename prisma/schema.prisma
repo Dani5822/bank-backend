@@ -45,20 +45,20 @@ generator client {
 
 // 3
 model User {
-  id             String        @id @default(auto()) @map("_id") @db.ObjectId
-  Fristname      String
-  Lastname       String
-  Role           UserType      @default(User)
-  email          String        @unique
-  password       String
-  Expense        Expense[]
-  expenseid      String[]      @db.ObjectId
-  Income         Income[]
-  Incomeid       String[]      @db.ObjectId
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
-  Accounts       BankAccount[] @relation(fields: [BankaccountsId], references: [id])
-  BankaccountsId String[]      @db.ObjectId
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstname String
+  lastname  String
+  role      UserType  @default(User)
+  email     String    @unique
+  password  String
+  Expense   Expense[]
+  expenseid String[]  @db.ObjectId
+  Income    Income[]
+  incomeid  String[]  @db.ObjectId
+  createdat DateTime  @default(now())
+  updatedat DateTime  @updatedAt
+  Cards     Card[]    @relation(fields: [cardid], references: [id])
+  cardid    String[]  @db.ObjectId
   //ProductsSaled      SaleOfProduct[]
   //ProductsIncomed  IncomeOfProduct[]
   //profilePicture     Attachment?         @relation(fields: [attachmentFilename], references: [filename])
@@ -78,20 +78,20 @@ enum UserType {
 }
 
 model Income {
-  id                 String      @id @default(auto()) @map("_id") @db.ObjectId
-  total              Int
-  Category           String
-  Vendor             String?
-  Description        String
-  User               User        @relation(fields: [userId], references: [id])
-  userId             String      @db.ObjectId
-  Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
-  bankaccountId      String      @db.ObjectId
-  createdAt          DateTime    @default(now())
-  updatedAt          DateTime    @updatedAt
-  replicationammount Int         @default(1)
-  replicationmetric  String
-  replicationstart   DateTime    @default(now())
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  total         Int
+  category      String
+  vendor        String?
+  description   String
+  User          User     @relation(fields: [userId], references: [id])
+  userId        String   @db.ObjectId
+  Card          Card     @relation(fields: [cardId], references: [id])
+  cardId        String   @db.ObjectId
+  createdat     DateTime @default(now())
+  updatedat     DateTime @updatedAt
+  repeatammount Int      @default(1)
+  repeatmetric  String
+  repeatstart   DateTime @default(now())
   //Payment   Payment[]
 }
 
@@ -111,20 +111,20 @@ model Income {
 //}
 
 model Expense {
-  id                 String      @id @default(auto()) @map("_id") @db.ObjectId
-  total              Int
-  Category           String
-  Vendor             String?
-  Description        String
-  User               User        @relation(fields: [userId], references: [id])
-  userId             String      @db.ObjectId
-  replicationammount Int         @default(1)
-  replicationmetric  String
-  replicationstart   DateTime    @default(now())
-  createdAt          DateTime    @default(now())
-  updatedAt          DateTime    @updatedAt
-  Bankaccount        BankAccount @relation(fields: [bankaccountId], references: [id])
-  bankaccountId      String      @db.ObjectId
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  total         Int
+  category      String
+  vendor        String?
+  description   String
+  User          User     @relation(fields: [userId], references: [id])
+  userId        String   @db.ObjectId
+  repeatammount Int      @default(1)
+  repeatmetric  String
+  repeatstart   DateTime @default(now())
+  createdat     DateTime @default(now())
+  updatedat     DateTime @updatedAt
+  Card          Card     @relation(fields: [cardId], references: [id])
+  cardId        String   @db.ObjectId
 }
 
 //model Attachment {
@@ -139,15 +139,15 @@ model Expense {
 //  updatedAt  DateTime  @updatedAt
 //}
 
-model BankAccount {
+model Card {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   Users     User[]    @relation(fields: [userId], references: [id])
   userId    String[]  @db.ObjectId
   total     Float
   Expense   Expense[]
   Income    Income[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdat DateTime  @default(now())
+  updatedat DateTime  @updatedAt
   //Admin     User[]     @relation(fields: [adminid], references: [id])
   //adminid    String[]   @db.ObjectId
   //Payment   Payment[]

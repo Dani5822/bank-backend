@@ -15,13 +15,13 @@ export class UserService {
     const saltRounds = 10;
     return this.db.user.create({
       data: {
-        Fristname: data.Fristname,
-        Lastname: data.Lastname,
+        firstname: data.firstname,
+        lastname: data.lastname,
         email: data.email,
         password: await bcrypt.hash(data.password, saltRounds),
         Expense: undefined,
         Income: undefined,
-        Accounts: undefined,
+        Cards: undefined,
       },
     });
   }
@@ -36,7 +36,7 @@ export class UserService {
   findOnewithbankaccount(id: string) {
     return this.db.user.findUnique({
       where: { id: id },
-      include: { Accounts: true },
+      include: { Cards: true },
     });
   }
 
@@ -44,7 +44,7 @@ export class UserService {
     return this.db.user.update({
       where: { id: id },
       data: {
-        Accounts: {
+        Cards: {
           connect: { id: updateUserDto.bankaccountid },
         },
       },
@@ -58,19 +58,19 @@ export class UserService {
   async remove(id: string) {
     const user = await this.db.user.findUnique({
       where: { id: id },
-      include: { Accounts: true },
+      include: { Cards: true },
     });
-    if (user && user.Accounts.length === 0) {
+    if (user && user.Cards.length === 0) {
       return this.db.user.delete({ where: { id: id } });
     } else if (user) {
-      const bankaccountswithuser = await this.db.bankAccount.findMany({
+      const bankaccountswithuser = await this.db.card.findMany({
         where: { userId: { has: id } },
       });
       await bankaccountswithuser.map(async (item) => {
         if (item.userId.length === 1) {
           await new BankAccountsService(this.db).remove(item.id);
         } else {
-          await this.db.bankAccount.update({
+          await this.db.card.update({
             where: { id: item.id },
             data: { userId: item.userId.filter((user) => user !== id) },
           });
@@ -84,7 +84,7 @@ export class UserService {
 
   async login(email: string, password: string) {
     const bcrypt = require('bcrypt');
-    let x= await this.db.user.findFirst({
+    let x= await this.db.user.findUniqueOrThrow({
       where: { email: email },
     });
     if(!x){

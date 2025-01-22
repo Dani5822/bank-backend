@@ -13,16 +13,16 @@ export class PurchaseService {
     return this.db.income.create({
       data: {
         total: createPurchaseDto.total,
-        Category: createPurchaseDto.category,
-        Description: createPurchaseDto.description,
-        Vendor: createPurchaseDto.Vendor,
-        replicationammount: createPurchaseDto.replicationammount,
-        replicationmetric: createPurchaseDto.replicationmetric,
-        replicationstart: new Date(createPurchaseDto.replicationstart),
+        category: createPurchaseDto.category,
+        description: createPurchaseDto.description,
+        vendor: createPurchaseDto.Vendor,
+        repeatammount: createPurchaseDto.repeatammount,
+        repeatmetric: createPurchaseDto.repeatmetric,
+        repeatstart: new Date(createPurchaseDto.repeatstart),
         User: {
           connect: { id: createPurchaseDto.userid },
         },
-        Bankaccount: {
+        Card: {
           connect: { id: createPurchaseDto.bankaccountid },
         },
       },
@@ -42,16 +42,16 @@ export class PurchaseService {
       where: { id: id },
       data: {
         total: updatePurchaseDto.total,
-        Category: updatePurchaseDto.category,
-        Description: updatePurchaseDto.description,
-        Vendor: updatePurchaseDto.Vendor,
-        replicationammount: updatePurchaseDto.replicationammount,
-        replicationmetric: updatePurchaseDto.replicationmetric,
-        replicationstart: new Date(updatePurchaseDto.replicationstart),
+        category: updatePurchaseDto.category,
+        description: updatePurchaseDto.description,
+        vendor: updatePurchaseDto.Vendor,
+        repeatammount: updatePurchaseDto.repeatammount,
+        repeatmetric: updatePurchaseDto.repeatmetric,
+        repeatstart: new Date(updatePurchaseDto.repeatstart),
         User: {
           connect: { id: updatePurchaseDto.userid },
         },
-        Bankaccount: {
+        Card: {
           connect: { id: updatePurchaseDto.bankaccountid },
         },
       },
@@ -59,33 +59,6 @@ export class PurchaseService {
   }
 
   async remove(id: string) {
-    let x = this.db.income.findUnique({ where: { id: id } });
-    const user = await this.db.user.findMany({
-      where: { Incomeid: { has: id } },
-    });
-    const bank = await this.db.bankAccount.findMany({
-      where: { Income: { some: { id: id } } },
-      include: { Income: true },
-    });
-    await user.map(async (item) => {
-      await this.db.user.update({
-        where: { id: item.id },
-        data: {
-          Incomeid: item.Incomeid.filter((id) => id !== id),
-        },
-      });
-    });
-    await bank.map(async (item) => {
-      await this.db.bankAccount.update({
-        where: { id: item.id },
-        data: {
-          Income: {
-            disconnect: { id: id },
-          },
-        },
-      });
-    });
-    return this.db.income.findUnique({ where: { id: id },include:{User:true,Bankaccount:true} });
-    //this.db.purchase.delete({ where: { id: id } });
+    this.db.income.delete({ where: { id: id } });
   }
 }

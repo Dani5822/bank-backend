@@ -10,7 +10,7 @@ export class BankAccountsService {
     this.db = db;
   }
   create(createBankAccountDto: CreateBankAccountDto) {
-    return this.db.bankAccount.create({
+    return this.db.card.create({
       data: {
         total: 0,
         Users: {
@@ -23,26 +23,26 @@ export class BankAccountsService {
   }
 
   findAllbyUserId(id: string) {
-    return this.db.bankAccount.findMany({
+    return this.db.card.findMany({
       include: { Users: true },
       where: { userId: { has: id } },
     });
   }
 
   findOne(id: string) {
-    return this.db.bankAccount.findUnique({ where: { id: id } });
+    return this.db.card.findUnique({ where: { id: id } });
   }
 
   async updateuser(id: string, updateBankAccountDto: UpdateBankAccountDto) {
     await this.db.user.update({
       where: { id: updateBankAccountDto.userid },
       data: {
-        Accounts: {
+        Cards: {
           connect: { id: id },
         },
       },
     });
-    return this.db.bankAccount.update({
+    return this.db.card.update({
       where: { id: id },
       data: {
         Users: {
@@ -54,17 +54,17 @@ export class BankAccountsService {
 
   async remove(id: string) {
     const userwithbankaccount = await this.db.user.findMany({
-      where: { BankaccountsId: { has: id } },
+      where: { cardid: { has: id } },
     });
     await userwithbankaccount.map(async (item) => {
       await this.db.user.update({
         where: { id: item.id },
         data: {
-          BankaccountsId: item.BankaccountsId.filter((bankid) => bankid !== id),
+          cardid: item.cardid.filter((bankid) => bankid !== id),
         },
       });
     });
 
-    return await this.db.bankAccount.delete({ where: { id: id } });
+    return await this.db.card.delete({ where: { id: id } });
   }
 }
