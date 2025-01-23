@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { PurchaseService } from './purchase.service';
-import { PurchaseController } from './purchase.controller';
+import { PurchaseService } from './income.service';
+import { PurchaseController } from './income.controller';
 import { PrismaService } from 'src/prisma.service';
 
 @Module({

@@ -1,6 +1,6 @@
 import { Category, Metric } from "@prisma/client";
 
-export class CreatePurchaseDto {
+export class CreateIncomeDto {
     total:number;
     category:Category;
     Vendor: string;
