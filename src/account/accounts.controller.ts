@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { BankAccountsService } from './bank-accounts.service';
-import { CreateBankAccountDto } from './dto/create-bank-account.dto';
-import { UpdateBankAccountDto } from './dto/update-bank-account.dto';
+import { BankAccountsService } from './accounts.service';
+import { CreateBankAccountDto } from './dto/create-account.dto';
+import { UpdateBankAccountDto } from './dto/update-account.dto';
 
 @Controller('bankaccounts')
 export class BankAccountsController {

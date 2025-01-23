@@ -93,7 +93,7 @@ export class UserService {
     if(await bcrypt.compare(password,x.password)){
       return x;
     }else{
-      throw new Error('Invalid password or email');
+      throw new NotFoundException('Invalid password or email');
     }
   }
 }

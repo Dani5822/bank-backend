@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBankAccountDto } from './dto/create-bank-account.dto';
-import { UpdateBankAccountDto } from './dto/update-bank-account.dto';
+import { CreateBankAccountDto } from './dto/create-account.dto';
+import { UpdateBankAccountDto } from './dto/update-account.dto';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
