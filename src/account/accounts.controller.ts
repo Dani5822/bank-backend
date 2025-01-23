@@ -1,36 +1,36 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { BankAccountsService } from './accounts.service';
-import { CreateBankAccountDto } from './dto/create-account.dto';
-import { UpdateBankAccountDto } from './dto/update-account.dto';
+import { AccountsService } from './accounts.service';
+import { CreateAccountDto } from './dto/create-account.dto';
+import { UpdateAccountDto } from './dto/update-account.dto';
 
-@Controller('bankaccounts')
-export class BankAccountsController {
-  constructor(private readonly bankAccountsService: BankAccountsService) {}
+@Controller('accounts')
+export class AccountsController {
+  constructor(private readonly AccountsService: AccountsService) {}
 
   @Post()
-  create(@Body() createBankAccountDto: CreateBankAccountDto) {
-    return this.bankAccountsService.create(createBankAccountDto);
+  create(@Body() createAccountDto: CreateAccountDto) {
+    return this.AccountsService.create(createAccountDto);
   }
 
   @Get('all/:id')
   findAllbyUserId(@Param('id') id: string) {
-    return this.bankAccountsService.findAllbyUserId(id);
+    return this.AccountsService.findAllbyUserId(id);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.bankAccountsService.findOne(id);
+    return this.AccountsService.findOne(id);
   }
 
   
 
   @Patch('/user/:id')
-  async updateuser(@Param('id') id: string, @Body() updateBankAccountDto: UpdateBankAccountDto) {
-    return this.bankAccountsService.updateuser(id, updateBankAccountDto);
+  async updateuser(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto) {
+    return this.AccountsService.updateuser(id, updateAccountDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.bankAccountsService.remove(id);
+    return this.AccountsService.remove(id);
   }
 }

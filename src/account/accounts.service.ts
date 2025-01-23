@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBankAccountDto } from './dto/create-account.dto';
-import { UpdateBankAccountDto } from './dto/update-account.dto';
+import { CreateAccountDto } from './dto/create-account.dto';
+import { UpdateAccountDto } from './dto/update-account.dto';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
-export class BankAccountsService {
+export class AccountsService {
   db: PrismaService;
   constructor(db: PrismaService) {
     this.db = db;
   }
-  create(createBankAccountDto: CreateBankAccountDto) {
+  create(createAccountDto: CreateAccountDto) {
     return this.db.account.create({
       data: {
         total: 0,
-        currency: createBankAccountDto.currency,
+        currency: createAccountDto.currency,
         Users: {
-          connect: { id: createBankAccountDto.userid },
+          connect: { id: createAccountDto.userid },
         },
         Expenses: undefined,
         Incomes: undefined,
@@ -34,9 +34,9 @@ export class BankAccountsService {
     return this.db.account.findUnique({ where: { id: id } });
   }
 
-  async updateuser(id: string, updateBankAccountDto: UpdateBankAccountDto) {
+  async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
     await this.db.user.update({
-      where: { id: updateBankAccountDto.userid },
+      where: { id: updateAccountDto.userid },
       data: {
         Accounts: {
           connect: { id: id },
@@ -47,21 +47,21 @@ export class BankAccountsService {
       where: { id: id },
       data: {
         Users: {
-          connect: { id: updateBankAccountDto.userid },
+          connect: { id: updateAccountDto.userid },
         },
       },
     });
   }
 
   async remove(id: string) {
-    const userwithbankaccount = await this.db.user.findMany({
+    const userwithaccount = await this.db.user.findMany({
       where: { accountId: { has: id } },
     });
-    await userwithbankaccount.map(async (item) => {
+    await userwithaccount.map(async (item) => {
       await this.db.user.update({
         where: { id: item.id },
         data: {
-          accountId: item.accountId.filter((bankid) => bankid !== id),
+          accountId: item.accountId.filter((id) => id !== id),
         },
       });
     });
