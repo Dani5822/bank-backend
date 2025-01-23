@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma.service';
-import { BankAccountsService } from 'src/bank-accounts/bank-accounts.service';
+import { AccountsService } from 'src/account/accounts.service';
 
 @Injectable()
 export class UserService {
@@ -68,7 +68,7 @@ export class UserService {
       });
       await bankaccountswithuser.map(async (item) => {
         if (item.userId.length === 1) {
-          await new BankAccountsService(this.db).remove(item.id);
+          await new AccountsService(this.db).remove(item.id);
         } else {
           await this.db.account.update({
             where: { id: item.id },

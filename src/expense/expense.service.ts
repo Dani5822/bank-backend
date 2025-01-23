@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { PrismaService } from 'src/prisma.service';
-import { disconnect } from 'process';
 
 @Injectable()
 export class ExpenseService {
