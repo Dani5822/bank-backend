@@ -47,7 +47,7 @@ export class IncomeService {
         vendor: updateIncomeDto.Vendor,
         repeatAmount: updateIncomeDto.repeatamount,
         repeatMetric: updateIncomeDto.repeatmetric,
-        repeatStart: new Date(updateIncomeDto.repeatstart),
+        repeatStart: updateIncomeDto.repeatstart,
         User: {
           connect: { id: updateIncomeDto.userid },
         },
