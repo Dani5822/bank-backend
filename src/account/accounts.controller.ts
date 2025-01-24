@@ -17,6 +17,16 @@ export class AccountsController {
     return this.AccountsService.findAllbyUserId(id);
   }
 
+  @Get('allex/:id')
+  getallexp(@Param('id') id: string) {
+    return this.AccountsService.getAllExpensebyAccountID(id);
+  }
+
+  @Get('all/:id')
+  getallin(@Param('id') id: string) {
+    return this.AccountsService.getAllIncomebyAccountID(id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.AccountsService.findOne(id);

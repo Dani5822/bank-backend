@@ -25,8 +25,18 @@ export class AccountsService {
 
   findAllbyUserId(id: string) {
     return this.db.account.findMany({
-      include: { Users: true, Expenses: true, Incomes: true },
       where: { userId: { has: id } },
+    });
+  }
+
+  getAllExpensebyAccountID(id: string) {
+    return this.db.expense.findMany({
+      where: { accountId: id },
+    });
+  }
+  getAllIncomebyAccountID(id: string) {
+    return this.db.income.findMany({
+      where: { accountId: id },
     });
   }
 
