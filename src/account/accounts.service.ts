@@ -25,13 +25,13 @@ export class AccountsService {
 
   findAllbyUserId(id: string) {
     return this.db.account.findMany({
-      include: { Users: true },
+      include: { Users: true, Expenses: true, Incomes: true },
       where: { userId: { has: id } },
     });
   }
 
   findOne(id: string) {
-    return this.db.account.findUnique({ where: { id: id } });
+    return this.db.account.findUnique({ where: { id: id }});
   }
 
   async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
