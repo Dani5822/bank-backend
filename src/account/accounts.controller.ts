@@ -22,7 +22,7 @@ export class AccountsController {
     return this.AccountsService.getAllExpensebyAccountID(id);
   }
 
-  @Get('all/:id')
+  @Get('allin/:id')
   getallin(@Param('id') id: string) {
     return this.AccountsService.getAllIncomebyAccountID(id);
   }
