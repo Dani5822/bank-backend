@@ -7,7 +7,7 @@ export class CreateIncomeDto {
     description: string;
     userid: string;
     bankaccountid: string;
-    repeatammount: number;
+    repeatamount: number;
     repeatmetric: Metric;
     repeatstart: Date;
 }

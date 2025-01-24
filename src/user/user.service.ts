@@ -34,10 +34,12 @@ export class UserService {
     return this.db.user.findUnique({ where: { id: id } });
   }
   async findOnewithbankaccount(id: string) {
+    
     let x= await this.db.user.findUnique({
       where: { id: id },
       include: { Accounts: true },
     });
+    console.log(x)
     return x;
   }
 

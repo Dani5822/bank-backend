@@ -8,7 +8,7 @@ export class CreateExpenseDto {
   Description: string;
   userid: string;
   bankaccountid: string;
-  repeatammount: number;
+  repeatamount: number;
   repeatmetric: Metric;
   repeatstart: Date;
 }

@@ -16,7 +16,7 @@ export class IncomeService {
         category: createIncomeDto.category,
         description: createIncomeDto.description,
         vendor: createIncomeDto.Vendor,
-        repeatAmmount: createIncomeDto.repeatammount,
+        repeatAmount: createIncomeDto.repeatamount,
         repeatMetric: createIncomeDto.repeatmetric,
         repeatStart: new Date(createIncomeDto.repeatstart),
         User: {
@@ -45,7 +45,7 @@ export class IncomeService {
         category: updateIncomeDto.category,
         description: updateIncomeDto.description,
         vendor: updateIncomeDto.Vendor,
-        repeatAmmount: updateIncomeDto.repeatammount,
+        repeatAmount: updateIncomeDto.repeatamount,
         repeatMetric: updateIncomeDto.repeatmetric,
         repeatStart: new Date(updateIncomeDto.repeatstart),
         User: {

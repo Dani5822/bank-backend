@@ -107,7 +107,7 @@ model Income {
   accountId        String   @db.ObjectId
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-  repeatAmmount Int      @default(1)
+  repeatAmount Int      @default(1)
   repeatMetric  Metric   @default(Day)
   repeatStart   DateTime @default(now())
   repeatEnd     DateTime @default(now())
@@ -141,7 +141,7 @@ model Expense {
   updatedAt     DateTime @updatedAt
   Account          Account     @relation(fields: [accountId], references: [id])
   accountId        String   @db.ObjectId
-  repeatAmmount Int      @default(1)
+  repeatAmount Int      @default(1)
   repeatMetric  Metric   @default(Day) //tesztelésig
   repeatStart   DateTime @default(now())
   repeatEnd     DateTime @default(now())

@@ -16,7 +16,7 @@ export class ExpenseService {
         category: createExpenseDto.Category,
         vendor: createExpenseDto.vendor,
         description: createExpenseDto.Description,
-        repeatAmmount: createExpenseDto.repeatammount,
+        repeatAmount: createExpenseDto.repeatamount,
         repeatMetric: createExpenseDto.repeatmetric,
         repeatStart: new Date(createExpenseDto.repeatstart),
         User: {

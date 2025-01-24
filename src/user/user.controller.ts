@@ -29,7 +29,6 @@ export class UserController {
   @Get('userbank/:id')
   async findOnewithbankaccount(@Param('id') id: string) {
     let x= await this.userService.findOnewithbankaccount(id);
-    console.log(x);
     return x;
   }
 
