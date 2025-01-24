@@ -39,7 +39,6 @@ export class UserService {
       where: { id: id },
       include: { Accounts: true },
     });
-    console.log(x)
     return x;
   }
 

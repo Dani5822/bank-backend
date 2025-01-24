@@ -18,7 +18,7 @@ export class ExpenseService {
         description: createExpenseDto.Description,
         repeatAmount: createExpenseDto.repeatamount,
         repeatMetric: createExpenseDto.repeatmetric,
-        repeatStart: new Date(createExpenseDto.repeatstart),
+        repeatStart: createExpenseDto.repeatstart,
         User: {
           connect: { id: createExpenseDto.userid }
         },
