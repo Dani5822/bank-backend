@@ -16,14 +16,14 @@ export class ExpenseService {
         category: createExpenseDto.Category,
         vendor: createExpenseDto.vendor,
         description: createExpenseDto.Description,
-        repeatAmount: createExpenseDto.repeatamount,
-        repeatMetric: createExpenseDto.repeatmetric,
-        repeatStart: createExpenseDto.repeatstart,
+        repeatAmount: createExpenseDto.repeatAmount,
+        repeatMetric: createExpenseDto.repeatMetric,
+        repeatStart: createExpenseDto.repeatStart,
         User: {
-          connect: { id: createExpenseDto.userid }
+          connect: { id: createExpenseDto.userId }
         },
         Account: {
-          connect: { id: createExpenseDto.bankaccountid }
+          connect: { id: createExpenseDto.bankAccountId }
         }
       }
     });

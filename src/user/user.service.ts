@@ -15,8 +15,8 @@ export class UserService {
     const saltRounds = 10;
     return this.db.user.create({
       data: {
-        firstName: data.firstname,
-        lastName: data.lastname,
+        firstName: data.firstName,
+        lastName: data.lastName,
         email: data.email,
         password: await bcrypt.hash(data.password, saltRounds),
         Expenses: undefined,

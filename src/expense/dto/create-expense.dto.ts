@@ -6,9 +6,9 @@ export class CreateExpenseDto {
   Category: Category;
   vendor: string;
   Description: string;
-  userid: string;
-  bankaccountid: string;
-  repeatamount: number;
-  repeatmetric: Metric;
-  repeatstart: Date;
+  userId: string;
+  bankAccountId: string;
+  repeatAmount: number;
+  repeatMetric: Metric;
+  repeatStart: Date;
 }

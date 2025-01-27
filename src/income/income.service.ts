@@ -16,14 +16,14 @@ export class IncomeService {
         category: createIncomeDto.category,
         description: createIncomeDto.description,
         vendor: createIncomeDto.Vendor,
-        repeatAmount: createIncomeDto.repeatamount,
-        repeatMetric: createIncomeDto.repeatmetric,
-        repeatStart: new Date(createIncomeDto.repeatstart),
+        repeatAmount: createIncomeDto.repeatAmount,
+        repeatMetric: createIncomeDto.repeatMetric,
+        repeatStart: new Date(createIncomeDto.repeatStart),
         User: {
           connect: { id: createIncomeDto.userid },
         },
         Account: {
-          connect: { id: createIncomeDto.bankaccountid },
+          connect: { id: createIncomeDto.bankAccountId },
         },
       },
     });
@@ -45,14 +45,14 @@ export class IncomeService {
         category: updateIncomeDto.category,
         description: updateIncomeDto.description,
         vendor: updateIncomeDto.Vendor,
-        repeatAmount: updateIncomeDto.repeatamount,
-        repeatMetric: updateIncomeDto.repeatmetric,
-        repeatStart: updateIncomeDto.repeatstart,
+        repeatAmount: updateIncomeDto.repeatAmount,
+        repeatMetric: updateIncomeDto.repeatMetric,
+        repeatStart: updateIncomeDto.repeatStart,
         User: {
           connect: { id: updateIncomeDto.userid },
         },
         Account: {
-          connect: { id: updateIncomeDto.bankaccountid },
+          connect: { id: updateIncomeDto.bankAccountId },
         },
       },
     });

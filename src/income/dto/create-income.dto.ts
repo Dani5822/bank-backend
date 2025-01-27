@@ -6,8 +6,8 @@ export class CreateIncomeDto {
     Vendor: string;
     description: string;
     userid: string;
-    bankaccountid: string;
-    repeatamount: number;
-    repeatmetric: Metric;
-    repeatstart: Date;
+    bankAccountId: string;
+    repeatAmount: number;
+    repeatMetric: Metric;
+    repeatStart: Date;
 }

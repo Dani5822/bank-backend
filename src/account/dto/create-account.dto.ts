@@ -1,7 +1,7 @@
 import { Currency } from "@prisma/client"
 
 export class CreateAccountDto {
-    userid:string
+    userId:string
     currency:Currency
 }
 

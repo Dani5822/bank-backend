@@ -15,7 +15,7 @@ export class AccountsService {
         total: 0,
         currency: createAccountDto.currency,
         Users: {
-          connect: { id: createAccountDto.userid },
+          connect: { id: createAccountDto.userId },
         },
         Expenses: undefined,
         Incomes: undefined,
@@ -46,7 +46,7 @@ export class AccountsService {
 
   async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
     await this.db.user.update({
-      where: { id: updateAccountDto.userid },
+      where: { id: updateAccountDto.userId },
       data: {
         Accounts: {
           connect: { id: id },
@@ -57,7 +57,7 @@ export class AccountsService {
       where: { id: id },
       data: {
         Users: {
-          connect: { id: updateAccountDto.userid },
+          connect: { id: updateAccountDto.userId },
         },
       },
     });
