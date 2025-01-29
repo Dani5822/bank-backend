@@ -11,4 +11,5 @@ export class CreateExpenseDto {
   repeatAmount: number;
   repeatMetric: Metric;
   repeatStart: Date;
+  repeatEnd: Date;
 }

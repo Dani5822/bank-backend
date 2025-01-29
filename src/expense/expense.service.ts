@@ -19,6 +19,7 @@ export class ExpenseService {
         repeatAmount: createExpenseDto.repeatAmount,
         repeatMetric: createExpenseDto.repeatMetric,
         repeatStart: createExpenseDto.repeatStart,
+        repeatEnd: createExpenseDto.repeatEnd,
         User: {
           connect: { id: createExpenseDto.userId }
         },

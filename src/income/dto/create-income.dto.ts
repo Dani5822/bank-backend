@@ -10,4 +10,5 @@ export class CreateIncomeDto {
     repeatAmount: number;
     repeatMetric: Metric;
     repeatStart: Date;
+    repeatEnd: Date;
 }

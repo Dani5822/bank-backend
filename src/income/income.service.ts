@@ -18,7 +18,8 @@ export class IncomeService {
         vendor: createIncomeDto.Vendor,
         repeatAmount: createIncomeDto.repeatAmount,
         repeatMetric: createIncomeDto.repeatMetric,
-        repeatStart: new Date(createIncomeDto.repeatStart),
+        repeatStart: createIncomeDto.repeatStart,
+        repeatEnd: createIncomeDto.repeatEnd,
         User: {
           connect: { id: createIncomeDto.userid },
         },
