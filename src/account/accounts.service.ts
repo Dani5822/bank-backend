@@ -63,6 +63,16 @@ export class AccountsService {
     });
   }
 
+  update(id: string, updateAccountDto: UpdateAccountDto) {
+    return this.db.account.update({
+      where: { id: id },
+      data: {
+        total: updateAccountDto.total,
+        currency: updateAccountDto.currency,
+      },
+    });
+  }
+
   async remove(id: string) {
     const userwithaccount = await this.db.user.findMany({
       where: { accountId: { has: id } },

@@ -39,6 +39,11 @@ export class AccountsController {
     return this.AccountsService.updateuser(id, updateAccountDto);
   }
 
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto) {
+    return this.AccountsService.update(id, updateAccountDto);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.AccountsService.remove(id);
