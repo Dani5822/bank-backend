@@ -13,7 +13,7 @@ export class UserService {
   async create(data: CreateUserDto) {
     const bcrypt = require('bcrypt');
     const saltRounds = 10;
-    return this.db.user.create({
+    let user= await this.db.user.create({
       data: {
         firstName: data.firstName,
         lastName: data.lastName,
@@ -23,7 +23,18 @@ export class UserService {
         Incomes: undefined,
         Accounts: undefined,
       },
+
     });
+    await this.db.account.create({
+      data:{
+        currency: "HUF",
+        total: 0,
+        Users: {
+          connect: { id: user.id },
+        },
+      }
+    })
+    return user;
   }
 
   findAll() {
@@ -31,7 +42,7 @@ export class UserService {
   }
 
   findOne(id: string) {
-    return this.db.user.findUnique({ where: { id: id } });
+    return this.db.user.findUnique({ where: { id: id },include: { Accounts: true } });
   }
   async findOnewithbankaccount(id: string) {
     
