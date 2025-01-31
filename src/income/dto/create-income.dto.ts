@@ -3,7 +3,7 @@ import { IncomeCategory, Metric } from "@prisma/client";
 export class CreateIncomeDto {
     total:number;
     category:IncomeCategory;
-    Vendor: string;
+    vendor: string;
     description: string;
     userid: string;
     bankAccountId: string;

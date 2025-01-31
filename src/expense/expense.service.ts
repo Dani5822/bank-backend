@@ -13,9 +13,9 @@ export class ExpenseService {
     return this.db.expense.create({
       data: {
         total: createExpenseDto.total,
-        category: createExpenseDto.Category,
+        category: createExpenseDto.category,
         vendor: createExpenseDto.vendor,
-        description: createExpenseDto.Description,
+        description: createExpenseDto.description,
         repeatAmount: createExpenseDto.repeatAmount,
         repeatMetric: createExpenseDto.repeatMetric,
         repeatStart: createExpenseDto.repeatStart,
