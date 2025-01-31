@@ -1,9 +1,9 @@
-import { Category, Metric } from "@prisma/client";
+import { ExpenseCategory, Metric } from "@prisma/client";
 
 
 export class CreateExpenseDto {
   total: number;
-  Category: Category;
+  Category: ExpenseCategory;
   vendor: string;
   Description: string;
   userId: string;

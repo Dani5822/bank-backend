@@ -1,8 +1,8 @@
-import { Category, Metric } from "@prisma/client";
+import { IncomeCategory, Metric } from "@prisma/client";
 
 export class CreateIncomeDto {
     total:number;
-    category:Category;
+    category:IncomeCategory;
     Vendor: string;
     description: string;
     userid: string;

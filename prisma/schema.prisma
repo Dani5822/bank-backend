@@ -16,10 +16,17 @@ enum Currency {
   HUF
 }
 
-enum Category {
+enum ExpenseCategory {
   Shopping
   Rent
   Transport
+  Transaction
+  Other
+}
+
+enum IncomeCategory {
+  Salary
+  Transaction
   Other
 }
 
@@ -98,7 +105,7 @@ model User {
 model Income {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   total        Float
-  category     Category @default(Other)
+  category     IncomeCategory @default(Other)
   vendor       String?
   description  String
   User         User     @relation(fields: [userId], references: [id])
@@ -132,7 +139,7 @@ model Income {
 model Expense {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   total        Float
-  category     Category @default(Other)
+  category     ExpenseCategory @default(Other)
   vendor       String?
   description  String
   User         User     @relation(fields: [userId], references: [id])
