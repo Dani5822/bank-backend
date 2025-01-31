@@ -5,7 +5,7 @@ export class CreateIncomeDto {
     category:IncomeCategory;
     vendor: string;
     description: string;
-    userid: string;
+    userId: string;
     bankAccountId: string;
     repeatAmount: number;
     repeatMetric: Metric;

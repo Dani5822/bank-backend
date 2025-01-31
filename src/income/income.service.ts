@@ -21,7 +21,7 @@ export class IncomeService {
         repeatStart: createIncomeDto.repeatStart,
         repeatEnd: createIncomeDto.repeatEnd,
         User: {
-          connect: { id: createIncomeDto.userid },
+          connect: { id: createIncomeDto.userId },
         },
         Account: {
           connect: { id: createIncomeDto.bankAccountId },
@@ -50,7 +50,7 @@ export class IncomeService {
         repeatMetric: updateIncomeDto.repeatMetric,
         repeatStart: updateIncomeDto.repeatStart,
         User: {
-          connect: { id: updateIncomeDto.userid },
+          connect: { id: updateIncomeDto.userId },
         },
         Account: {
           connect: { id: updateIncomeDto.bankAccountId },
