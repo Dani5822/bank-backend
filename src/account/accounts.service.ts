@@ -14,6 +14,7 @@ export class AccountsService {
       data: {
         total: 0,
         currency: createAccountDto.currency,
+        ownerName: createAccountDto.ownerName,
         Users: {
           connect: { id: createAccountDto.userId },
         },
