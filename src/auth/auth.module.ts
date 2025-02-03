@@ -6,6 +6,7 @@ import { PrismaService } from 'src/prisma.service';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './strategies/local.strategy';
+import { env } from 'node:process';
 
 @Module({
   providers: [AuthService,UserService,PrismaService,LocalStrategy],
@@ -13,7 +14,7 @@ import { LocalStrategy } from './strategies/local.strategy';
   imports:[
     JwtModule.register({
       global:true,
-      secret:"env",
+      secret:process.env.JWT_SECRET,
       signOptions: { expiresIn: '1h' },
     }),
     PassportModule
