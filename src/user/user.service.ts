@@ -6,10 +6,7 @@ import { AccountsService } from 'src/account/accounts.service';
 
 @Injectable()
 export class UserService {
-  db: PrismaService;
-  constructor(db: PrismaService) {
-    this.db = db;
-  }
+  constructor(private db: PrismaService) {}
   async create(data: CreateUserDto) {
     const bcrypt = require('bcrypt');
     const saltRounds = 10;
@@ -109,5 +106,15 @@ export class UserService {
     }else{
       throw new NotFoundException('Invalid password or email');
     }
+  }
+
+  async loginwithtoken(email:string,password:string){
+    let x= await this.db.user.findUniqueOrThrow({
+      where: { email: email },
+    });
+    if(!x){
+      throw new NotFoundException('User not found');
+    }
+    return x;
   }
 }
