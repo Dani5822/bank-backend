@@ -79,14 +79,16 @@ export class AccountsService {
     });
   }
 
-  update(id: string, updateAccountDto: UpdateAccountDto) {
-    return this.db.account.update({
+  async update(id: string, updateAccountDto: UpdateAccountDto) {
+    var x= await this.db.account.update({
       where: { id: id },
       data: {
-        total: parseFloat(updateAccountDto.total.toString()),
+        total: updateAccountDto.total,
         currency: updateAccountDto.currency,
       },
     });
+    console.log(x);
+    return x;
   }
 
   async remove(id: string) {

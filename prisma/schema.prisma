@@ -14,6 +14,8 @@ enum UserType {
 
 enum Currency {
   HUF
+  USD
+  EUR
 }
 
 enum ExpenseCategory {
