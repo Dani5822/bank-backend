@@ -72,6 +72,17 @@ export class AccountsService {
     });
   }
 
+  async connectUserwithemail(id:string,email:string){
+    const user=await this.db.user.findUnique({
+      where:{email:email}
+    });
+    if(user==null){
+      return null;
+    }
+    return await this.updateuser(id,{userId: user.id});
+    
+  }
+
   async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
     await this.db.user.update({
       where: { id: updateAccountDto.userId },

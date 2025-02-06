@@ -66,6 +66,16 @@ export class AccountsController {
     return data;
   }
 
+  @Patch('/user/email/:id')
+  @UseGuards(AuthGuard)
+  async connectUserwithemail(@Param('id') id: string, @Body() body:{email:string}) {
+    const data= await this.AccountsService.connectUserwithemail(id, body.email);
+    if(data==null){
+      throw new NotFoundException('Not Found');
+    }
+    return data;
+  }
+
   
 
   @Patch('/user/:id')
