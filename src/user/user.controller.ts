@@ -1,11 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, NotFoundException } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { AuthService } from 'src/auth/auth.service';
-import { LocalStrategy } from 'src/auth/strategies/local.strategy';
-import { PassportLocalGuard } from 'src/auth/guards/passport.local.guard';
-import { AuthGuard } from 'src/auth/guards/auth.guard';
+import { AuthService } from '../auth/auth.service';
+import { PassportLocalGuard } from '../auth/guards/passport.local.guard';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 @Controller('user')
 export class UserController {
@@ -25,7 +24,12 @@ export class UserController {
   @Get(':id')
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
-    return this.userService.findOne(id);
+    const user = this.userService.findOne(id);
+    if (user == undefined) {
+      throw new NotFoundException('Not Found');
+    } else {
+      return this.userService.findOne(id);
+    }
   }
   @Post('login/token')
   login(@Body('email') email: string, @Body('password') password: string) {
