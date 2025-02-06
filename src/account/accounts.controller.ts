@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException } from '@nestjs/common';
 import { AccountsService } from './accounts.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
@@ -16,27 +16,43 @@ export class AccountsController {
 
   @Get('all/:id')
   @UseGuards(AuthGuard)
-  findAllbyUserId(@Param('id') id: string) {
-    return this.AccountsService.findAllbyUserId(id);
+  async findAllbyUserId(@Param('id') id: string) {
+    const data=await this.AccountsService.findAllbyUserId(id);
+    if(data==null){
+      throw new NotFoundException('Not Found');
+    }else{
+      return data;
+    }
   }
 
   @Get('alluser/:id')
   @UseGuards(AuthGuard)
-  findAllUserWithId(@Param('id') id: string) {
-    return this.AccountsService.findAllUserWithId(id);
+  async findAllUserWithId(@Param('id') id: string) {
+    const data=await this.AccountsService.findAllUserWithId(id);
+    if(data==null){
+      throw new NotFoundException('Not Found');}
+    return data;
   }
 
 
   @Get('allex/:id')
   @UseGuards(AuthGuard)
-  getallexp(@Param('id') id: string) {
-    return this.AccountsService.getAllExpensebyAccountID(id);
+  async getallexp(@Param('id') id: string) {
+    const data= await this.AccountsService.getAllExpensebyAccountID(id);
+    if(data==null){
+      throw new NotFoundException('Not Found');
+    }
+    return data;
   }
 
   @Get('allin/:id')
   @UseGuards(AuthGuard)
-  getallin(@Param('id') id: string) {
-    return this.AccountsService.getAllIncomebyAccountID(id);
+  async getallin(@Param('id') id: string) {
+    const data=await this.AccountsService.getAllIncomebyAccountID(id);
+    if(data==null){
+      throw new NotFoundException('Not Found');
+    }
+    return data;
   }
 
   @Get(':id')
