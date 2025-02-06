@@ -25,7 +25,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
     const user = this.userService.findOne(id);
-    if (user == undefined) {
+    if (user == null) {
       throw new NotFoundException('Not Found');
     } else {
       return this.userService.findOne(id);
