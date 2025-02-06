@@ -7,6 +7,7 @@ import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
 import { NotFoundException } from '@nestjs/common';
+import { rejects } from 'assert';
 
 describe('AccountsController', () => {
   let controller: AccountsController;
@@ -90,5 +91,15 @@ describe('AccountsController', () => {
   it("should return Not found exception",()=>{
     jest.spyOn(service,"getAllExpensebyAccountID").mockResolvedValue(null)
     expect(controller.getallexp("1")).rejects.toThrow(NotFoundException)
+  })
+
+  it("should return one object",()=>{
+    jest.spyOn(service,"findOne").mockResolvedValue(testArray[0])
+    expect(controller.findOne("1")).resolves.toEqual(testArray[0])
+  })
+
+  it("should return not found exception",()=>{
+    jest.spyOn(service,"findOne").mockResolvedValue(null)
+    expect(controller.findOne("1")).rejects.toThrow(NotFoundException)
   })
 });
