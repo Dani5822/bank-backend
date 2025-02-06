@@ -57,8 +57,13 @@ export class AccountsController {
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  findOne(@Param('id') id: string) {
-    return this.AccountsService.findOne(id);
+  async findOne(@Param('id') id: string) {
+
+    const data=await this.AccountsService.findOne(id);
+    if(data==null){
+      throw new NotFoundException('Not Found');
+    }
+    return data;
   }
 
   
