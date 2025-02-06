@@ -24,21 +24,33 @@ export class AccountsService {
     });
   }
 
-  findAllbyUserId(id: string) {
-    return this.db.account.findMany({
+  async findAllbyUserId(id: string) {
+    const x= await this.db.account.findMany({
       where: { userId: { has: id } },
     });
+    if(x.length==0){
+      return null;
+    }else{
+      return x;
+    }
   }
 
-  getAllExpensebyAccountID(id: string) {
-    return this.db.expense.findMany({
+  async getAllExpensebyAccountID(id: string) {
+    const data= await this.db.expense.findMany({
       where: { accountId: id },
     });
+
+    if(data.length==0){
+      return null;}
+    return data;
   }
-  getAllIncomebyAccountID(id: string) {
-    return this.db.income.findMany({
+  async getAllIncomebyAccountID(id: string) {
+    const data=await this.db.income.findMany({
       where: { accountId: id },
     });
+    if(data.length==0){
+      return null;}
+    return data;
   }
 
   findOne(id: string) {
@@ -83,7 +95,7 @@ export class AccountsService {
     var x= await this.db.account.update({
       where: { id: id },
       data: {
-        total: updateAccountDto.total,
+        total: parseFloat(updateAccountDto.total.toString()),
         currency: updateAccountDto.currency,
       },
     });

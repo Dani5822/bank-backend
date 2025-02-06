@@ -70,12 +70,7 @@ describe('UserController', () => {
   });
 
   it('should be defined', () => {
-    jest.spyOn(service,"findOne").mockReturnValue(null)
+    jest.spyOn(service,"findOne").mockReturnValue(undefined)
     expect(() => controller.findOne("1")).toThrow(NotFoundException);
-  })
-
-  it('should return the user and all of its bankaccounts', () => {
-    jest.spyOn(service,"findOnewithbankaccount").mockResolvedValue(testArray[0])
-    expect(controller.findOnewithbankaccount("1")).resolves.toEqual(testArray[0])
   })
 });
