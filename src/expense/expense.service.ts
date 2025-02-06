@@ -39,7 +39,24 @@ export class ExpenseService {
   }
 
   update(id: string, updateExpenseDto: UpdateExpenseDto) {
-    return `This action updates a #${id} expense`;
+    return this.db.expense.update({
+      where: { id: id },
+      data: {
+        total: updateExpenseDto.total,
+        category: updateExpenseDto.category,
+        description: updateExpenseDto.description,
+        vendor: updateExpenseDto.vendor,
+        repeatAmount: updateExpenseDto.repeatAmount,
+        repeatMetric: updateExpenseDto.repeatMetric,
+        repeatStart: updateExpenseDto.repeatStart,
+        User: {
+          connect: { id: updateExpenseDto.userId },
+        },
+        Account: {
+          connect: { id: updateExpenseDto.bankAccountId },
+        },
+      },
+    });
   }
 
   async remove(id: string) {

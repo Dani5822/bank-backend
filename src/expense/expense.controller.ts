@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException, BadRequestException } from '@nestjs/common';
 import { ExpenseService } from './expense.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
@@ -11,7 +11,11 @@ export class ExpenseController {
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createExpenseDto: CreateExpenseDto) {
-    return this.expenseService.create(createExpenseDto);
+    try{
+      return this.expenseService.create(createExpenseDto);
+    }catch{
+      throw new BadRequestException('Bad Request');
+    }
   }
 
   @Get()

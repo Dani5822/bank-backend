@@ -11,7 +11,11 @@ export class IncomeController {
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createIncomeDto: CreateIncomeDto) {
-    return this.IncomeService.create(createIncomeDto);
+    try{
+      return this.IncomeService.create(createIncomeDto);
+    }catch{
+      throw new BadRequestException('Bad Request');
+    }
   }
 
   @Get()

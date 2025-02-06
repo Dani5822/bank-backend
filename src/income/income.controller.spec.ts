@@ -5,9 +5,9 @@ import { PrismaService } from 'src/prisma.service';
 import { AuthService } from 'src/auth/auth.service';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { JwtService } from '@nestjs/jwt';
-import { NotFoundException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { IncomeCategory, Metric, PrismaClient } from '@prisma/client';
+import { BadRequestException, NotFoundException } from '@nestjs/common';
 
 describe('IncomeController', () => {
   let controller: IncomeController;
@@ -69,5 +69,20 @@ describe('IncomeController', () => {
     jest.spyOn(service, 'create').mockResolvedValue(testArray[0]);
     await expect(controller.create(testArray[0])).resolves.toBe(testArray[0]);
   });
+  
+  it('should throw BadRequestException when create fails', async () => {
+    jest.spyOn(service, 'create').mockRejectedValue(new BadRequestException('Bad Request'));
+    await expect(controller.create(testArray[0])).rejects.toThrow(BadRequestException);
+  });
 
+  it('should update an income', async () => {
+    const updateDto = { ...testArray[0], total: 15000 };
+    jest.spyOn(service, 'update').mockResolvedValue(updateDto);
+    await expect(controller.update("1", updateDto)).resolves.toBe(updateDto);
+  });
+
+  it('should delete an income', async () => {
+    jest.spyOn(service, 'remove').mockResolvedValue(testArray[0]);
+    await expect(controller.remove("1")).resolves.toBe(testArray[0]);
+  });
 });
