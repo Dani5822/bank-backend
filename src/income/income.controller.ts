@@ -11,12 +11,7 @@ export class IncomeController {
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createIncomeDto: CreateIncomeDto) {
-    const income = this.IncomeService.create(createIncomeDto);
-    if (income == null) {
-      throw new BadRequestException('Bad Request'); // changed from NotFoundException to BadRequestException
-    } else {
-      return this.IncomeService.create(createIncomeDto);
-    }
+    return this.IncomeService.create(createIncomeDto);
   }
 
   @Get()

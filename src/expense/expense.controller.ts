@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException } from '@nestjs/common';
 import { ExpenseService } from './expense.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
@@ -23,7 +23,12 @@ export class ExpenseController {
   @Get(':id')
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
-    return this.expenseService.findOne(id);
+        const income = this.expenseService.findOne(id);
+        if (income == undefined) {
+          throw new NotFoundException('Not Found this income');
+        } else {
+          return this.expenseService.findOne(id);
+        }
   }
 
   @Patch(':id')

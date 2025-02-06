@@ -7,9 +7,7 @@ import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { NotFoundException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
-import { CreateIncomeDto } from './dto/create-income.dto';
 import { IncomeCategory, Metric, PrismaClient } from '@prisma/client';
-import { PrismaClientValidationError } from '@prisma/client/runtime/library';
 
 describe('IncomeController', () => {
   let controller: IncomeController;
