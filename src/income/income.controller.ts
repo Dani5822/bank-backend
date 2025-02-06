@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException, BadGatewayException, BadRequestException } from '@nestjs/common';
 import { IncomeService } from './income.service';
 import { CreateIncomeDto } from './dto/create-income.dto';
 import { UpdateIncomeDto } from './dto/update-income.dto';
@@ -11,7 +11,12 @@ export class IncomeController {
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createIncomeDto: CreateIncomeDto) {
-    return this.IncomeService.create(createIncomeDto);
+    const income = this.IncomeService.create(createIncomeDto);
+    if (income == null) {
+      throw new BadRequestException('Bad Request'); // changed from NotFoundException to BadRequestException
+    } else {
+      return this.IncomeService.create(createIncomeDto);
+    }
   }
 
   @Get()
@@ -24,7 +29,12 @@ export class IncomeController {
   @Get(':id')
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
-    return this.IncomeService.findOne(+id);
+    const income = this.IncomeService.findOne(+id);
+    if (income == undefined) {
+      throw new NotFoundException('Not Found this income');
+    } else {
+      return this.IncomeService.findOne(+id);
+    }
   }
 
   @Patch(':id')
