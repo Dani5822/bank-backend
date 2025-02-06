@@ -45,6 +45,21 @@ export class AccountsService {
     return this.db.account.findUnique({ where: { id: id }});
   }
 
+  findAllUserWithId(id: string) {
+    return this.db.account.findUnique({ where: { id: id },include:{Users:true}});
+  }
+
+  disconnectUser(id: string, updateAccountDto: UpdateAccountDto) {
+    return this.db.account.update({
+      where: { id: id },
+      data: {
+        Users: {
+          disconnect: { id: updateAccountDto.userId },
+        },
+      },
+    });
+  }
+
   async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
     await this.db.user.update({
       where: { id: updateAccountDto.userId },

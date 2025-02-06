@@ -20,6 +20,13 @@ export class AccountsController {
     return this.AccountsService.findAllbyUserId(id);
   }
 
+  @Get('alluser/:id')
+  @UseGuards(AuthGuard)
+  findAllUserWithId(@Param('id') id: string) {
+    return this.AccountsService.findAllUserWithId(id);
+  }
+
+
   @Get('allex/:id')
   @UseGuards(AuthGuard)
   getallexp(@Param('id') id: string) {
@@ -50,6 +57,12 @@ export class AccountsController {
   @UseGuards(AuthGuard)
   async update(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto) {
     return this.AccountsService.update(id, updateAccountDto);
+  }
+  
+  @Delete('/disconnect/:id')
+  @UseGuards(AuthGuard)
+  disconnectUser(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto) {
+    return this.AccountsService.disconnectUser(id, updateAccountDto);
   }
 
   @Delete(':id')
