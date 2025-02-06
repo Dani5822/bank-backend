@@ -95,7 +95,7 @@ export class AccountsService {
     var x= await this.db.account.update({
       where: { id: id },
       data: {
-        total: updateAccountDto.total,
+        total: parseFloat(updateAccountDto.total.toString()),
         currency: updateAccountDto.currency,
       },
     });
