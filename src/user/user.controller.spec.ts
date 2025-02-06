@@ -69,7 +69,7 @@ describe('UserController', () => {
     expect(controller.findOne("1")).toBe(testArray[0])
   });
 
-  it('should be defined', () => {
+  it('should return Notfound exception', () => {
     jest.spyOn(service,"findOne").mockReturnValue(undefined)
     expect(() => controller.findOne("1")).toThrow(NotFoundException);
   })
