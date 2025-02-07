@@ -90,10 +90,11 @@ export class AccountsController {
     return this.AccountsService.update(id, updateAccountDto);
   }
   
-  @Delete('/disconnect/:id')
+  @Patch('/disconnect/:id')
   @UseGuards(AuthGuard)
-  disconnectUser(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto) {
-    return this.AccountsService.disconnectUser(id, updateAccountDto);
+  disconnectUser(@Param('id') id: string, @Body() data:{userId: string}) {
+    console.log(data.userId);
+    return this.AccountsService.disconnectUser(id, data.userId);
   }
 
   @Delete(':id')

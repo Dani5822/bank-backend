@@ -61,15 +61,17 @@ export class AccountsService {
     return this.db.account.findUnique({ where: { id: id },include:{Users:true}});
   }
 
-  disconnectUser(id: string, updateAccountDto: UpdateAccountDto) {
-    return this.db.account.update({
+  disconnectUser(id: string, userId: string) {
+    const data= this.db.account.update({
       where: { id: id },
       data: {
         Users: {
-          disconnect: { id: updateAccountDto.userId },
+          disconnect: { id: userId },
         },
       },
     });
+    console.log(data);
+    return data;
   }
 
   async connectUserwithemail(id:string,email:string){
