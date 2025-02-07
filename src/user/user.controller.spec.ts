@@ -6,6 +6,8 @@ import { AuthService } from '../auth/auth.service';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { NotFoundException } from '@nestjs/common';
+import { create } from 'domain';
+import { CreateUserDto } from './dto/create-user.dto';
 
 
 describe('UserController', () => {
@@ -72,5 +74,26 @@ describe('UserController', () => {
   it('should be defined', () => {
     jest.spyOn(service,"findOne").mockReturnValue(undefined)
     expect(() => controller.findOne("1")).toThrow(NotFoundException);
+  });
+
+  it('should return with created user', () => {
+    jest.spyOn(service,"create").mockReturnValue(testArray[0])
+    expect(controller.create(testArray[0])).toEqual(testArray[0])
+  })
+
+  it("should return with the user with the updated user",()=>{
+    jest.spyOn(service,"updatebank").mockReturnValue(testArray[0])
+    expect(controller.updatebank("test",testArray[0])).toEqual(testArray[0])
+  })
+
+
+  it("sould return with a user",()=>{
+    jest.spyOn(service,"findOnewithbankaccount").mockResolvedValue(testArray[0])
+    expect(controller.findOnewithbankaccount(testArray[0])).resolves.toEqual(testArray[0])
+  })
+
+  it("sould return with a not found error",()=>{
+    jest.spyOn(service,"findOnewithbankaccount").mockResolvedValue(null)
+    expect(controller.findOnewithbankaccount(testArray[0])).rejects.toThrow(NotFoundException)
   })
 });

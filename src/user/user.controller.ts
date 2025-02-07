@@ -42,7 +42,15 @@ export class UserController {
   @UseGuards(AuthGuard)
   async findOnewithbankaccount(@Param('id') id: string) {
     let x= await this.userService.findOnewithbankaccount(id);
-    return x;
+    if(x == null)
+    {
+      throw new NotFoundException('Not Found')
+    }
+    else
+    {
+      return x;
+    }
+    
   }
   
   @Patch('userbank/:id')
