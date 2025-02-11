@@ -93,7 +93,6 @@ export class AccountsController {
   @Patch('/disconnect/:id')
   @UseGuards(AuthGuard)
   disconnectUser(@Param('id') id: string, @Body() data:{userId: string}) {
-    console.log(data.userId);
     return this.AccountsService.disconnectUser(id, data.userId);
   }
 

@@ -70,7 +70,6 @@ export class AccountsService {
         },
       },
     });
-    console.log(data);
     return data;
   }
 
@@ -89,17 +88,17 @@ export class AccountsService {
     await this.db.user.update({
       where: { id: updateAccountDto.userId },
       data: {
-        Accounts: {
-          connect: { id: id },
+        accountId: {
+          push: id,
         },
       },
     });
     return this.db.account.update({
       where: { id: id },
       data: {
-        Users: {
-          connect: { id: updateAccountDto.userId },
-        },
+        userId: {
+          push: updateAccountDto.userId,
+        }
       },
     });
   }
