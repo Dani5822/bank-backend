@@ -119,11 +119,13 @@ export class AccountsService {
     const userwithaccount = await this.db.user.findMany({
       where: { accountId: { has: id } },
     });
-    await userwithaccount.map(async (item) => {
+    userwithaccount.map(async (item) => {
       await this.db.user.update({
         where: { id: item.id },
         data: {
-          accountId: item.accountId.filter((id) => id !== id),
+          accountId:{
+            set: item.accountId.filter((x) => x !== id),
+          }
         },
       });
     });
