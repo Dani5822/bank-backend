@@ -34,6 +34,15 @@ export class AccountsController {
     return data;
   }
 
+  @Get('user/:id')
+  @UseGuards(AuthGuard)
+  async findAllWithUser(@Param('id') id: string) {
+    const data=await this.AccountsService.findAllWithUser(id);
+    if(data==null){
+      throw new NotFoundException('Not Found');}
+    return data;
+  }
+  
 
   @Get('allex/:id')
   @UseGuards(AuthGuard)

@@ -35,6 +35,13 @@ export class AccountsService {
     }
   }
 
+  async findAllWithUser(userid: string) {
+    await this.db.user.findUnique({
+      where: { id: userid },
+      include: { Accounts: true },
+    })
+  }
+
   async getAllExpensebyAccountID(id: string) {
     const data= await this.db.expense.findMany({
       where: { accountId: id },
