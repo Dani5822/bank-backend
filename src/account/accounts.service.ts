@@ -40,7 +40,7 @@ export class AccountsService {
       where: { id: userid }
     })
     const y=[]
-    x.accountId.forEach(element =>async ()=>{
+    x.accountId.forEach(async(element) =>{
       const data=await this.db.account.findUnique({
         where: { id: element }})
         y.push(data);
