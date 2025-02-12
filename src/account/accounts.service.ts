@@ -36,10 +36,17 @@ export class AccountsService {
   }
 
   async findAllWithUser(userid: string) {
-    await this.db.user.findUnique({
-      where: { id: userid },
-      include: { Accounts: true },
+    const x=await this.db.user.findUnique({
+      where: { id: userid }
     })
+    const y=[]
+    x.accountId.forEach(element =>async ()=>{
+      const data=await this.db.account.findUnique({
+        where: { id: element }})
+        y.push(data);
+
+    });
+    return y;
   }
 
   async getAllExpensebyAccountID(id: string) {
