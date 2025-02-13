@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { PrismaService } from '../prisma.service';
@@ -23,7 +23,7 @@ export class AccountsService {
       },
     });
   }
-
+  
   async findAllbyUserId(id: string) {
     const x= await this.db.account.findMany({
       where: { userId: { has: id } },
@@ -34,101 +34,128 @@ export class AccountsService {
       return x;
     }
   }
-
+  
   async findAllWithUser(userid: string) {
     const user = await this.db.user.findUnique({
       where: { id: userid },
       include: { Accounts: true }, // Include related accounts
     });
-
+    
     if (!user) {
       throw new Error('User not found');
     }
-
+    
     return user.Accounts;
   }
 
-
+  
   async getAllExpensebyAccountID(id: string) {
     const data= await this.db.expense.findMany({
       where: { accountId: id },
     });
-
-    if(data.length==0){
-      return null;}
-    return data;
-  }
-  async getAllIncomebyAccountID(id: string) {
-    const data=await this.db.income.findMany({
-      where: { accountId: id },
-    });
-    if(data.length==0){
-      return null;}
-    return data;
-  }
-
-  findOne(id: string) {
-    return this.db.account.findUnique({ where: { id: id }});
-  }
-
-  findAllUserWithId(id: string) {
-    return this.db.account.findUnique({ where: { id: id },include:{Users:true}});
-  }
-
-  disconnectUser(id: string, userId: string) {
-    const data= this.db.account.update({
-      where: { id: id },
-      data: {
-        Users: {
-          disconnect: { id: userId },
-        },
-      },
-    });
-    return data;
-  }
-
-  async connectUserwithemail(id:string,email:string){
-    const user=await this.db.user.findUnique({
-      where:{email:email}
-    });
-    if(user==null){
-      return null;
-    }
-    return await this.updateuser(id,{userId: user.id});
     
-  }
-
-  async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
-    await this.db.user.update({
-      where: { id: updateAccountDto.userId },
-      data: {
-        accountId: {
-          push: id,
-        },
-      },
-    });
-    return this.db.account.update({
-      where: { id: id },
-      data: {
-        userId: {
-          push: updateAccountDto.userId,
+    if(data.length==0){
+      return null;}
+      return data;
+    }
+    async getAllIncomebyAccountID(id: string) {
+      const data=await this.db.income.findMany({
+        where: { accountId: id },
+      });
+      if(data.length==0){
+        return null;}
+        return data;
+      }
+      
+      findOne(id: string) {
+        return this.db.account.findUnique({ where: { id: id }});
+      }
+      
+      findAllUserWithId(id: string) {
+        return this.db.account.findUnique({ where: { id: id },include:{Users:true}});
+      }
+      
+      disconnectUser(id: string, userId: string) {
+        const data= this.db.account.update({
+          where: { id: id },
+          data: {
+            Users: {
+              disconnect: { id: userId },
+            },
+          },
+        });
+        return data;
+      }
+      
+      async connectUserwithemail(id:string,email:string){
+        const user=await this.db.user.findUnique({
+          where:{email:email}
+        });
+        if(user==null){
+          return null;
         }
-      },
-    });
-  }
-
-  async update(id: string, updateAccountDto: UpdateAccountDto) {
-    var x= await this.db.account.update({
-      where: { id: id },
-      data: {
-        total: parseFloat(updateAccountDto.total.toString()),
-        currency: updateAccountDto.currency,
-      },
-    });
-    console.log(x);
-    return x;
-  }
-
+        return await this.updateuser(id,{userId: user.id});
+        
+      }
+      
+      async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
+        await this.db.user.update({
+          where: { id: updateAccountDto.userId },
+          data: {
+            accountId: {
+              push: id,
+            },
+          },
+        });
+        return this.db.account.update({
+          where: { id: id },
+          data: {
+            userId: {
+              push: updateAccountDto.userId,
+            }
+          },
+        });
+      }
+      
+      async update(id: string, updateAccountDto: UpdateAccountDto) {
+        var x= await this.db.account.update({
+          where: { id: id },
+          data: {
+            total: parseFloat(updateAccountDto.total.toString()),
+            currency: updateAccountDto.currency,
+          },
+        });
+        
+        return x;
+      }
+      
+      async transfer(data: { accountfrom: string; accountto: string; amount: number; }) {
+        const accountfrom= await this.db.account.findUnique({
+          where: { id: data.accountfrom },
+        });
+        const accountto= await this.db.account.findUnique({
+          where: { id: data.accountto },
+        });
+        if(accountfrom==null || accountto==null){
+          throw new NotFoundException('Account not found');
+        }
+        if(accountfrom.total<data.amount){
+          return null;
+        }
+        await this.db.account.update({
+          where: { id: data.accountfrom },
+          data: {
+            total: accountfrom.total-data.amount,
+          },
+        });
+        await this.db.account.update({
+          where: { id: data.accountto },
+          data: {
+            total: accountto.total+data.amount,
+          },
+        });
+        return accountfrom;
+      }
   async remove(id: string) {
     const userwithaccount = await this.db.user.findMany({
       where: { accountId: { has: id } },
@@ -143,11 +170,11 @@ export class AccountsService {
         },
       });
     });
-
+    
     await this.db.income.deleteMany({
       where: { accountId: id },
     })
-
+    
     await this.db.expense.deleteMany({
       where: { accountId: id },
     })
