@@ -107,7 +107,7 @@ export class AccountsController {
 
   @Patch('/transfer')
   @UseGuards(AuthGuard)
-  transfer(@Body() transferdata:{accountfrom: string,accountto: string, amount: number}) {
+  transfer(@Body() transferdata:{userId:string,accountfrom: string,accountto: string, amount: number}) {
     try{
       const data=this.AccountsService.transfer(transferdata);
       if(data==null){

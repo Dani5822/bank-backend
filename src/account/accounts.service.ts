@@ -129,7 +129,7 @@ export class AccountsService {
         return x;
       }
       
-      async transfer(data: { accountfrom: string; accountto: string; amount: number; }) {
+      async transfer(data: {userId:string, accountfrom: string; accountto: string; amount: number; }) {
         const accountfrom= await this.db.account.findUnique({
           where: { id: data.accountfrom },
         });
@@ -146,12 +146,28 @@ export class AccountsService {
           where: { id: data.accountfrom },
           data: {
             total: accountfrom.total-data.amount,
+            Expenses: {
+              create: {
+                total: data.amount,
+                category: "Transaction",
+                description: "Transfer",
+                userId: data.userId,
+              },
+            }
           },
         });
         await this.db.account.update({
           where: { id: data.accountto },
           data: {
             total: accountto.total+data.amount,
+            Incomes: {
+              create:{
+                total: data.amount,
+                category: "Transaction",
+                description: "Transfer",
+                userId: data.userId,
+              }
+            }
           },
         });
         return accountfrom;
