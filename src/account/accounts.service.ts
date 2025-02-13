@@ -144,6 +144,16 @@ export class AccountsService {
       });
     });
 
-    return await this.db.account.delete({ where: { id: id } });
+    await this.db.income.deleteMany({
+      where: { accountId: id },
+    })
+
+    await this.db.expense.deleteMany({
+      where: { accountId: id },
+    })
+    
+    let x= await this.db.account.delete({ where: { id: id } });
+    console.log(x);
+    return x;
   }
 }
