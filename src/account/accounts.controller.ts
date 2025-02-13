@@ -63,6 +63,19 @@ export class AccountsController {
     }
     return data;
   }
+  @Patch('/transfer')
+  @UseGuards(AuthGuard)
+  transfer(@Body() transferdata:{userId:string,accountfrom: string,accountto: string, amount: number}) {
+    try{
+      const data=this.AccountsService.transfer(transferdata);
+      if(data==null){
+      throw new Error('Not enough balance');
+      }
+      return data;
+    }catch(e){
+      throw new NotFoundException(e.message);
+    }
+  }
 
   @Get(':id')
   @UseGuards(AuthGuard)
@@ -105,19 +118,7 @@ export class AccountsController {
     return this.AccountsService.disconnectUser(id, data.userId);
   }
 
-  @Patch('/transfer')
-  @UseGuards(AuthGuard)
-  transfer(@Body() transferdata:{userId:string,accountfrom: string,accountto: string, amount: number}) {
-    try{
-      const data=this.AccountsService.transfer(transferdata);
-      if(data==null){
-      throw new Error('Not enough balance');
-      }
-      return data;
-    }catch(e){
-      throw new NotFoundException(e.message);
-    }
-  }
+  
 
   @Delete(':id')
   @UseGuards(AuthGuard)
