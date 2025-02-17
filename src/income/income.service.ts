@@ -49,6 +49,7 @@ export class IncomeService {
         repeatAmount: updateIncomeDto.repeatAmount,
         repeatMetric: updateIncomeDto.repeatMetric,
         repeatStart: updateIncomeDto.repeatStart,
+        repeatEnd: updateIncomeDto.repeatEnd,
         User: {
           connect: { id: updateIncomeDto.userId },
         },

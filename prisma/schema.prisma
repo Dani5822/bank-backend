@@ -41,43 +41,6 @@ enum Metric {
   Year
 }
 
-//model SuperAdmin {
-//id        String   @id @default(auto()) @map("_id") @db.ObjectId
-//name      String
-//email     String   @unique
-//password  String
-//createdAt DateTime @default(now())
-//updatedAt DateTime @updatedAt
-//}
-
-//model Admin {
-//id             String         @id @default(auto()) @map("_id") @db.ObjectId
-//name           String
-//email          String         @unique
-//password       String
-//numberOfUser       Int        @default(1)
-//Sale               Sale[]
-//Income           Income[]
-//SaleOfProduct      SaleOfProduct[]
-//IncomeOfProduct  IncomeOfProduct[]
-//Customers          Customer[]
-//Vendor             Vendor[]
-//User               User[]
-//profilePicture     Attachment[]
-//attachmentFilename String?
-//Expense            Expense[]
-//Payment            Payment[]
-//Products           Products[]
-//ReturnIncome     ReturnIncome[]
-//SaleReturn         SaleReturn[]
-//Accounts           Accounts[]
-//createdAt      DateTime       @default(now())
-//updatedAt      DateTime       @updatedAt
-//Bankaccounts   BankAccounts[] @relation(fields: [BankaccountsId], references: [id])
-//BankaccountsId String[]       @db.ObjectId
-//}
-
-// 3
 model User {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   firstName String
@@ -93,17 +56,6 @@ model User {
   updatedAt DateTime  @updatedAt
   Accounts  Account[] @relation(fields: [accountId], references: [id])
   accountId String[]  @db.ObjectId
-  //ProductsSaled      SaleOfProduct[]
-  //ProductsIncomed  IncomeOfProduct[]
-  //profilePicture     Attachment?         @relation(fields: [attachmentFilename], references: [filename])
-  //attachmentFilename String?             @unique
-  //Admin     Admin      @relation(fields: [adminId], references: [id])
-  //adminId   String
-  //ReturnIncome     ReturnIncome[]
-  //SaleReturn         SaleReturn[]
-  //Payment   Payment[]
-  //Accounts           Accounts[]
-  //Sale               Sale[]
 }
 
 model Income {
@@ -122,23 +74,7 @@ model Income {
   repeatMetric Metric   @default(Day)
   repeatStart  DateTime @default(now())
   repeatEnd    DateTime @default(now())
-  //Payment   Payment[]
 }
-
-//model Payment {
-//id            String       @id @default(auto()) @map("_id") @db.ObjectId
-//BillNo        String
-//Amount        Int
-//type          String
-//createdAt     DateTime     @default(now())
-//updatedAt     DateTime     @updatedAt
-//Bankaccount   BankAccounts @relation(fields: [bankaccountId], references: [id])
-//bankaccountId String       @db.ObjectId
-//Income   Income? @relation(fields: [IncomeId], references: [id])
-//IncomeId String? // relation scalar field (used in the `@relation` attribute above)
-//User       User?     @relation(fields: [userId], references: [id])
-//userId     String?
-//}
 
 model Expense {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
@@ -158,18 +94,6 @@ model Expense {
   repeatEnd    DateTime @default(now())
 }
 
-//model Attachment {
-//  mimetype   String?
-//  filename   String    @id @map("_id") @db.ObjectId
-//  encoding   String?
-//  productsId String?
-//  User       User?
-//  Admin      Admin?    @relation(fields: [adminId], references: [id])
-//  adminId    String?
-//  createdAt  DateTime  @default(now())
-//  updatedAt  DateTime  @updatedAt
-//}
-
 model Account {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   Users     User[]    @relation(fields: [userId], references: [id])
@@ -181,9 +105,4 @@ model Account {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   currency  Currency  @default(HUF)
-  //Admin     User[]     @relation(fields: [adminid], references: [id])
-  //adminid    String[]   @db.ObjectId
-  //Payment   Payment[]
-  //Admins    Admin[]    @relation(fields: [adminId], references: [id])
-  //adminId   String[]   @db.ObjectId
 }
