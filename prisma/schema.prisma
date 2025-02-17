@@ -22,12 +22,14 @@ enum ExpenseCategory {
   Shopping
   Rent
   Transport
+  Transfer
   Transaction
   Other
 }
 
 enum IncomeCategory {
   Salary
+  Transfer
   Transaction
   Other
 }
