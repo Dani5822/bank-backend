@@ -51,9 +51,8 @@ export class AccountsService {
     user.accountId.forEach(element => {
       resoult.Accounts.push(x.find((x)=>x.id==element));
     });
-    console.log(resoult);
 
-    return resoult;
+    return resoult.Accounts;
   }
 
   async getAllExpensebyAccountID(id: string) {
