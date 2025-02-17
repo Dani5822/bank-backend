@@ -28,7 +28,7 @@ export class UserController {
     if (user == null) {
       throw new NotFoundException('Not Found');
     } else {
-      return this.userService.findOne(id);
+      return user;
     }
   }
   @Post('login/token')

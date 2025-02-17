@@ -89,7 +89,7 @@ model Expense {
   Account      Account  @relation(fields: [accountId], references: [id])
   accountId    String   @db.ObjectId
   repeatAmount Int      @default(1)
-  repeatMetric Metric   @default(Day) //tesztelésig
+  repeatMetric Metric   @default(Day)
   repeatStart  DateTime @default(now())
   repeatEnd    DateTime @default(now())
 }

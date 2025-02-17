@@ -38,14 +38,22 @@ export class AccountsService {
   async findAllWithUser(userid: string) {
     const user = await this.db.user.findUnique({
       where: { id: userid },
-      include: { Accounts: true }, // Include related accounts
+      include: { Accounts: true },
+      
     });
-
     if (!user) {
       throw new Error('User not found');
     }
 
-    return user.Accounts;
+    let x=user.Accounts;
+    let resoult=user;
+    resoult.Accounts=[];
+    user.accountId.forEach(element => {
+      resoult.Accounts.push(x.find((x)=>x.id==element));
+    });
+    console.log(resoult);
+
+    return resoult;
   }
 
   async getAllExpensebyAccountID(id: string) {
@@ -102,16 +110,7 @@ export class AccountsService {
   }
 
   async updateuser(id: string, updateAccountDto: UpdateAccountDto) {
-    const user = await this.db.user.findUnique({
-      where: { id: updateAccountDto.userId },
-    });
-    const account = await this.db.account.findUnique({ where: { id: id } });
-    if (
-      !(
-        account.userId.includes(updateAccountDto.userId) ||
-        user.accountId.includes(id)
-      )
-    ) {
+    
       await this.db.user.update({
         where: { id: updateAccountDto.userId },
         data: {
@@ -128,9 +127,6 @@ export class AccountsService {
           },
         },
       });
-    }else{
-      throw new NotFoundException('User already connected'); 
-    }
   }
 
   async update(id: string, updateAccountDto: UpdateAccountDto) {
@@ -217,7 +213,6 @@ export class AccountsService {
     });
 
     let x = await this.db.account.delete({ where: { id: id } });
-    console.log(x);
     return x;
   }
 }
