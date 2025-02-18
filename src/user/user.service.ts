@@ -43,12 +43,18 @@ export class UserService {
     return this.db.user.findUnique({ where: { id: id } });
   }
   async findOnewithbankaccount(id: string) {
-    
-    let x= await this.db.user.findUnique({
+    let user= await this.db.user.findUnique({
       where: { id: id },
       include: { Accounts: true },
     });
-    return x;
+
+    let x=user.Accounts;
+    let resoult=user;
+    resoult.Accounts=[];
+    user.accountId.forEach(element => {
+      resoult.Accounts.push(x.find((x)=>x.id==element));
+    });
+    return resoult;
   }
 
   updatebank(id: string, updateUserDto: UpdateUserDto) {
