@@ -9,8 +9,8 @@ export class ExpenseService {
   constructor(db:PrismaService){
     this.db=db
   }
-  create(createExpenseDto: CreateExpenseDto) {
-    this.db.account.update({
+  async create(createExpenseDto: CreateExpenseDto) {
+    await this.db.account.update({
       where: { id: createExpenseDto.bankAccountId },
       data: {
         total: {

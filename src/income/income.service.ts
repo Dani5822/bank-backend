@@ -9,12 +9,12 @@ export class IncomeService {
   constructor(db: PrismaService) {
     this.db = db;
   }
-  create(createIncomeDto: CreateIncomeDto) {
-    this.db.account.update({
+  async create(createIncomeDto: CreateIncomeDto) {
+    await this.db.account.update({
       where: { id: createIncomeDto.bankAccountId },
       data: {
         total: {
-          increment: createIncomeDto.total
+          decrement: createIncomeDto.total
         }
       }
     })
