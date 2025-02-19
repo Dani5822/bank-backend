@@ -10,15 +10,7 @@ export class IncomeService {
     this.db = db;
   }
   async create(createIncomeDto: CreateIncomeDto) {
-    await this.db.account.update({
-      where: { id: createIncomeDto.bankAccountId },
-      data: {
-        total: {
-          increment: createIncomeDto.total
-        }
-      }
-    })
-    return this.db.income.create({
+    const x=await this.db.income.create({
       data: {
         total: createIncomeDto.total,
         category: createIncomeDto.category,
@@ -36,6 +28,15 @@ export class IncomeService {
         },
       },
     });
+    await this.db.account.update({
+      where: { id: createIncomeDto.bankAccountId },
+      data: {
+        total: {
+          increment: createIncomeDto.total
+        }
+      }
+    })
+    return x;
   }
 
   findAll() {

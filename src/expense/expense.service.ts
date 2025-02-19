@@ -10,15 +10,8 @@ export class ExpenseService {
     this.db=db
   }
   async create(createExpenseDto: CreateExpenseDto) {
-    await this.db.account.update({
-      where: { id: createExpenseDto.bankAccountId },
-      data: {
-        total: {
-          decrement: createExpenseDto.total
-        }
-      }
-    })
-    return this.db.expense.create({
+    
+    const x=await this.db.expense.create({
       data: {
         total: createExpenseDto.total,
         category: createExpenseDto.category,
@@ -36,6 +29,15 @@ export class ExpenseService {
         }
       }
     });
+    await this.db.account.update({
+      where: { id: createExpenseDto.bankAccountId },
+      data: {
+        total: {
+          decrement: createExpenseDto.total
+        }
+      }
+    })
+    return x;
   }
 
   findAll() {
