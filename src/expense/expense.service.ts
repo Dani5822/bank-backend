@@ -10,6 +10,14 @@ export class ExpenseService {
     this.db=db
   }
   create(createExpenseDto: CreateExpenseDto) {
+    this.db.account.update({
+      where: { id: createExpenseDto.bankAccountId },
+      data: {
+        total: {
+          decrement: createExpenseDto.total
+        }
+      }
+    })
     return this.db.expense.create({
       data: {
         total: createExpenseDto.total,

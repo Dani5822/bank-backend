@@ -10,6 +10,14 @@ export class IncomeService {
     this.db = db;
   }
   create(createIncomeDto: CreateIncomeDto) {
+    this.db.account.update({
+      where: { id: createIncomeDto.bankAccountId },
+      data: {
+        total: {
+          increment: createIncomeDto.total
+        }
+      }
+    })
     return this.db.income.create({
       data: {
         total: createIncomeDto.total,
@@ -39,6 +47,7 @@ export class IncomeService {
   }
 
   update(id: string, updateIncomeDto: UpdateIncomeDto) {
+    
     return this.db.income.update({
       where: { id: id },
       data: {
