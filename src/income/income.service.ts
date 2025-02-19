@@ -14,7 +14,7 @@ export class IncomeService {
       where: { id: createIncomeDto.bankAccountId },
       data: {
         total: {
-          decrement: createIncomeDto.total
+          increment: createIncomeDto.total
         }
       }
     })
