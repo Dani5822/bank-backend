@@ -8,6 +8,7 @@ import { JwtService } from '@nestjs/jwt';
 import { NotFoundException } from '@nestjs/common';
 import { create } from 'domain';
 import { CreateUserDto } from './dto/create-user.dto';
+import exp from 'constants';
 
 
 describe('UserController', () => {
@@ -96,4 +97,18 @@ describe('UserController', () => {
     jest.spyOn(service,"findOnewithbankaccount").mockResolvedValue(null)
     expect(controller.findOnewithbankaccount(testArray[0])).rejects.toThrow(NotFoundException)
   })
+
+
+  it("should return the user that was deleted", () =>{
+    jest.spyOn(service,"remove").mockReturnValue(testArray[0])
+    expect(controller.remove("id")).toEqual(testArray[0])
+  })
+
+  it("should return with the logged in user's data",()=>{
+    jest.spyOn(service,"login").mockReturnValue(testArray[0])
+    expect(controller.login("asd","asd")).toEqual(testArray[0])
+  })
+    
+
+
 });
