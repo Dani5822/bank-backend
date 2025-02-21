@@ -10,13 +10,14 @@ export class IncomeService {
     this.db = db;
   }
   async create(createIncomeDto: CreateIncomeDto) {
+    console.log(createIncomeDto);
     const x=await this.db.income.create({
       data: {
-        total: createIncomeDto.total,
+        total: parseFloat(createIncomeDto.total.toString()),
         category: createIncomeDto.category,
         description: createIncomeDto.description,
         vendor: createIncomeDto.vendor,
-        repeatAmount: createIncomeDto.repeatAmount,
+        repeatAmount: parseInt(createIncomeDto.repeatAmount.toString()),
         repeatMetric: createIncomeDto.repeatMetric,
         repeatStart: createIncomeDto.repeatStart,
         repeatEnd: createIncomeDto.repeatEnd,
@@ -32,7 +33,7 @@ export class IncomeService {
       where: { id: createIncomeDto.bankAccountId },
       data: {
         total: {
-          increment: createIncomeDto.total
+          increment: parseFloat(createIncomeDto.total.toString())
         }
       }
     })

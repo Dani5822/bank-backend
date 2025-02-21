@@ -13,11 +13,11 @@ export class ExpenseService {
     
     const x=await this.db.expense.create({
       data: {
-        total: createExpenseDto.total,
+        total: parseFloat(createExpenseDto.total.toString()),
         category: createExpenseDto.category,
         vendor: createExpenseDto.vendor,
         description: createExpenseDto.description,
-        repeatAmount: createExpenseDto.repeatAmount,
+        repeatAmount: parseInt(createExpenseDto.repeatAmount.toString()),
         repeatMetric: createExpenseDto.repeatMetric,
         repeatStart: createExpenseDto.repeatStart,
         repeatEnd: createExpenseDto.repeatEnd,
@@ -33,7 +33,7 @@ export class ExpenseService {
       where: { id: createExpenseDto.bankAccountId },
       data: {
         total: {
-          decrement: createExpenseDto.total
+          decrement: parseFloat(createExpenseDto.total.toString())
         }
       }
     })
