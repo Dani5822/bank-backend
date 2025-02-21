@@ -27,6 +27,7 @@ export class UserService {
         currency: "HUF",
         total: 0,
         ownerName: `${user.firstName} ${user.lastName}`,
+        ownerId: user.id,
         Users: {
           connect: { id: user.id },
         },
