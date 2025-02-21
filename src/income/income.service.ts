@@ -10,17 +10,12 @@ export class IncomeService {
     this.db = db;
   }
   async create(createIncomeDto: CreateIncomeDto) {
-    console.log(createIncomeDto);
     const x=await this.db.income.create({
       data: {
         total: parseFloat(createIncomeDto.total.toString()),
         category: createIncomeDto.category,
         description: createIncomeDto.description,
         vendor: createIncomeDto.vendor,
-        repeatAmount: parseInt(createIncomeDto.repeatAmount.toString()),
-        repeatMetric: createIncomeDto.repeatMetric,
-        repeatStart: createIncomeDto.repeatStart,
-        repeatEnd: createIncomeDto.repeatEnd,
         User: {
           connect: { id: createIncomeDto.userId },
         },
@@ -57,10 +52,6 @@ export class IncomeService {
         category: updateIncomeDto.category,
         description: updateIncomeDto.description,
         vendor: updateIncomeDto.vendor,
-        repeatAmount: updateIncomeDto.repeatAmount,
-        repeatMetric: updateIncomeDto.repeatMetric,
-        repeatStart: updateIncomeDto.repeatStart,
-        repeatEnd: updateIncomeDto.repeatEnd,
         User: {
           connect: { id: updateIncomeDto.userId },
         },

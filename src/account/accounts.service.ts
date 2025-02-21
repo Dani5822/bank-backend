@@ -15,6 +15,7 @@ export class AccountsService {
         total: 0,
         currency: createAccountDto.currency,
         ownerName: createAccountDto.ownerName,
+        ownerId: createAccountDto.userId,
         Users: {
           connect: { id: createAccountDto.userId },
         },
@@ -118,7 +119,7 @@ export class AccountsService {
           },
         },
       });
-      return this.db.account.update({
+      return await this.db.account.update({
         where: { id: id },
         data: {
           userId: {
