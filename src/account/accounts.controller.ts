@@ -54,6 +54,18 @@ export class AccountsController {
     return data;
   }
 
+  @Get('onlyUsers/:id')
+  @UseGuards(AuthGuard)
+  async getOnlyUser(@Param('id') id:string)
+  {
+    const data = await this.AccountsService.getOnlyUser(id)
+    if(data==null)
+    {
+      throw new NotFoundException('Not Found')
+    }
+    return data.Users;
+  }
+
   @Get('allin/:id')
   @UseGuards(AuthGuard)
   async getallin(@Param('id') id: string) {
