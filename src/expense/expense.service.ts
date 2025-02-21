@@ -17,10 +17,6 @@ export class ExpenseService {
         category: createExpenseDto.category,
         vendor: createExpenseDto.vendor,
         description: createExpenseDto.description,
-        repeatAmount: parseInt(createExpenseDto.repeatAmount.toString()),
-        repeatMetric: createExpenseDto.repeatMetric,
-        repeatStart: createExpenseDto.repeatStart,
-        repeatEnd: createExpenseDto.repeatEnd,
         User: {
           connect: { id: createExpenseDto.userId }
         },
@@ -56,9 +52,6 @@ export class ExpenseService {
         category: updateExpenseDto.category,
         description: updateExpenseDto.description,
         vendor: updateExpenseDto.vendor,
-        repeatAmount: updateExpenseDto.repeatAmount,
-        repeatMetric: updateExpenseDto.repeatMetric,
-        repeatStart: updateExpenseDto.repeatStart,
         User: {
           connect: { id: updateExpenseDto.userId },
         },
