@@ -15,7 +15,6 @@ export class IncomeService {
         total: parseFloat(createIncomeDto.total.toString()),
         category: createIncomeDto.category,
         description: createIncomeDto.description,
-        vendor: createIncomeDto.vendor,
         User: {
           connect: { id: createIncomeDto.userId },
         },
@@ -51,7 +50,6 @@ export class IncomeService {
         total: updateIncomeDto.total,
         category: updateIncomeDto.category,
         description: updateIncomeDto.description,
-        vendor: updateIncomeDto.vendor,
         User: {
           connect: { id: updateIncomeDto.userId },
         },

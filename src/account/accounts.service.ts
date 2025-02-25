@@ -168,7 +168,7 @@ export class AccountsService {
           create: {
             total: data.amount,
             category: 'Transfer',
-            description: 'Transfer',
+            description: `Transfer to: ${accountto.ownerName}`,
             userId: data.userId,
           },
         },
@@ -182,7 +182,7 @@ export class AccountsService {
           create: {
             total: data.amount,
             category: 'Transfer',
-            description: 'Transfer',
+            description: `Transfer from: ${accountfrom.ownerName}`,
             userId: data.userId,
           },
         },

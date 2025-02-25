@@ -42,7 +42,7 @@ export class ExpenseController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard)
+  //@UseGuards(AuthGuard)
   remove(@Param('id') id: string) {
     return this.expenseService.remove(id);
   }

@@ -10,12 +10,10 @@ export class ExpenseService {
     this.db=db
   }
   async create(createExpenseDto: CreateExpenseDto) {
-    
     const x=await this.db.expense.create({
       data: {
         total: parseFloat(createExpenseDto.total.toString()),
         category: createExpenseDto.category,
-        vendor: createExpenseDto.vendor,
         description: createExpenseDto.description,
         User: {
           connect: { id: createExpenseDto.userId }
@@ -51,7 +49,6 @@ export class ExpenseService {
         total: updateExpenseDto.total,
         category: updateExpenseDto.category,
         description: updateExpenseDto.description,
-        vendor: updateExpenseDto.vendor,
         User: {
           connect: { id: updateExpenseDto.userId },
         },
@@ -63,6 +60,12 @@ export class ExpenseService {
   }
 
   async remove(id: string) {
-    return this.db.expense.delete({ where: { id: id } });
+    this.db.account.update({
+      where: { id: id },
+      data:{
+        total:0
+      }
+    })
+    return this.db.expense.deleteMany({ where: { accountId: id } });
   }
 }
