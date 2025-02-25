@@ -74,6 +74,7 @@ describe('RepeatableTransactionService', () => {
             lastChange: new Date('2022-01-01'),
             repeatMetric: 'Week',
             repeatAmount: 1,
+            createdAt: new Date(),
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
@@ -92,6 +93,7 @@ describe('RepeatableTransactionService', () => {
             lastChange: new Date('2022-01-01'),
             repeatMetric: 'Month',
             repeatAmount: 1,
+            createdAt: new Date(),
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
           jest.spyOn(prismaService.repeatableTransaction, 'update').mockResolvedValue(transaction);
@@ -112,6 +114,7 @@ describe('RepeatableTransactionService', () => {
             lastChange: new Date(),
             repeatMetric: 'Year',
             repeatAmount: 1,
+            createdAt: new Date(),
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
