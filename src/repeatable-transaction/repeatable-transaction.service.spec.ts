@@ -59,7 +59,7 @@ describe('RepeatableTransactionService', () => {
         it('should throw NotFoundException if transaction is not found', async () => {
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(null);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(NotFoundException);
+          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(NotFoundException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -77,7 +77,7 @@ describe('RepeatableTransactionService', () => {
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId','userId')).rejects.toThrow(HttpException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -97,7 +97,7 @@ describe('RepeatableTransactionService', () => {
           jest.spyOn(prismaService.repeatableTransaction, 'update').mockResolvedValue(transaction);
           jest.spyOn(expenseService, 'create').mockResolvedValue(null);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(HttpException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -115,7 +115,7 @@ describe('RepeatableTransactionService', () => {
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(HttpException);
         });
       });
     });
