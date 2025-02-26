@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { PrismaService } from '../prisma.service';
@@ -65,7 +65,7 @@ export class AccountsService {
       });
       
     } catch (error) {
-      
+      return new HttpException('Not Found', 404);
     }
 
     if (data.length == 0) {
