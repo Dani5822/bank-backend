@@ -47,7 +47,12 @@ export class AccountsController {
   @Get('allex/:id')
   @UseGuards(AuthGuard)
   async getallexp(@Param('id') id: string) {
-    const data= await this.AccountsService.getAllExpensebyAccountID(id);
+    let data=null
+    try {
+      data=await this.AccountsService.getAllExpensebyAccountID(id);
+    } catch (error) {
+      return new HttpException('Not Found',404);
+    }
     if(data==null){
       return new HttpException('Not Found',404);
     }
