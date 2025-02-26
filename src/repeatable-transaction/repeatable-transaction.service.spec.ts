@@ -59,7 +59,7 @@ describe('RepeatableTransactionService', () => {
         it('should throw NotFoundException if transaction is not found', async () => {
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(null);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(NotFoundException);
+          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(NotFoundException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -74,10 +74,11 @@ describe('RepeatableTransactionService', () => {
             lastChange: new Date('2022-01-01'),
             repeatMetric: 'Week',
             repeatAmount: 1,
+            createdAt: new Date(),
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId','userId')).rejects.toThrow(HttpException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -92,12 +93,13 @@ describe('RepeatableTransactionService', () => {
             lastChange: new Date('2022-01-01'),
             repeatMetric: 'Month',
             repeatAmount: 1,
+            createdAt: new Date(),
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
           jest.spyOn(prismaService.repeatableTransaction, 'update').mockResolvedValue(transaction);
           jest.spyOn(expenseService, 'create').mockResolvedValue(null);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(HttpException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -112,10 +114,11 @@ describe('RepeatableTransactionService', () => {
             lastChange: new Date(),
             repeatMetric: 'Year',
             repeatAmount: 1,
+            createdAt: new Date(),
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
-          await expect(service.updateTransaction('tranId', 'accountId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(HttpException);
         });
       });
     });

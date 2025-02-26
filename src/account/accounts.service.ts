@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { PrismaService } from '../prisma.service';
@@ -58,9 +58,15 @@ export class AccountsService {
   }
 
   async getAllExpensebyAccountID(id: string) {
-    const data = await this.db.expense.findMany({
-      where: { accountId: id },
-    });
+    let data = null;
+    try {
+      data = await this.db.expense.findMany({
+        where: { accountId: id },
+      });
+      
+    } catch (error) {
+      return new HttpException('Not Found', 404);
+    }
 
     if (data.length == 0) {
       return null;

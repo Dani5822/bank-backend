@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, NotFoundException, HttpException } from '@nestjs/common';
 import { AccountsService } from './accounts.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
@@ -47,9 +47,24 @@ export class AccountsController {
   @Get('allex/:id')
   @UseGuards(AuthGuard)
   async getallexp(@Param('id') id: string) {
-    const data= await this.AccountsService.getAllExpensebyAccountID(id);
+    let data=null
+    try {
+      data=await this.AccountsService.getAllExpensebyAccountID(id);
+    } catch (error) {
+      return new HttpException('Not Found',404);
+    }
     if(data==null){
-      throw new NotFoundException('Not Found');
+      return new HttpException('Not Found',404);
+    }
+    return data;
+  }
+
+  @Get('allin/:id')
+  @UseGuards(AuthGuard)
+  async getallin(@Param('id') id: string) {
+    const data=await this.AccountsService.getAllIncomebyAccountID(id);
+    if(data==null){
+      return new HttpException('Not Found',404);
     }
     return data;
   }
@@ -66,15 +81,6 @@ export class AccountsController {
     return data.Users;
   }
 
-  @Get('allin/:id')
-  @UseGuards(AuthGuard)
-  async getallin(@Param('id') id: string) {
-    const data=await this.AccountsService.getAllIncomebyAccountID(id);
-    if(data==null){
-      throw new NotFoundException('Not Found');
-    }
-    return data;
-  }
   @Patch('/transfer')
   @UseGuards(AuthGuard)
   transfer(@Body() transferdata:{userId:string,accountfrom: string,accountto: string, amount: number}) {
