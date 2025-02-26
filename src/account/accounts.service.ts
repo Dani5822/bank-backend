@@ -58,9 +58,15 @@ export class AccountsService {
   }
 
   async getAllExpensebyAccountID(id: string) {
-    const data = await this.db.expense.findMany({
-      where: { accountId: id },
-    });
+    let data = null;
+    try {
+      data = await this.db.expense.findMany({
+        where: { accountId: id },
+      });
+      
+    } catch (error) {
+      
+    }
 
     if (data.length == 0) {
       return null;
