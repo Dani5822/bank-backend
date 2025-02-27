@@ -1,17 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param,UseGuards, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, UseGuards, Delete } from '@nestjs/common';
 import { RepeatableTransactionService } from './repeatable-transaction.service';
 import { CreateRepeatableTransactionDto } from './dto/create-repeatable-transaction.dto';
 import { UpdateRepeatableTransactionDto } from './dto/update-repeatable-transaction.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('repeatabletransactions')
+@ApiTags('Repeatable Transactions')
 @Controller('repeatabletransaction')
 export class RepeatableTransactionController {
-  constructor(private readonly repeatableTransactionService: RepeatableTransactionService,) {}
+  constructor(private readonly repeatableTransactionService: RepeatableTransactionService) {}
 
   @Post()
   @ApiOperation({ summary: 'Create a new repeatable transaction' })
+  @ApiBody({ type: CreateRepeatableTransactionDto })
+  @ApiResponse({ status: 201, description: 'The repeatable transaction has been successfully created.' })
+  @ApiResponse({ status: 400, description: 'Bad Request.' })
   @UseGuards(AuthGuard)
   async create(@Body() createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
     return await this.repeatableTransactionService.create(createRepeatableTransactionDto);
@@ -19,6 +22,9 @@ export class RepeatableTransactionController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a repeatable transaction by ID' })
+  @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
+  @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully retrieved.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
     return this.repeatableTransactionService.findOne(id);
@@ -26,13 +32,21 @@ export class RepeatableTransactionController {
 
   @Patch('update/:id')
   @ApiOperation({ summary: 'Update a repeatable transaction by user ID' })
+  @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
+  @ApiBody({ schema: { properties: { userId: { type: 'string' } } } })
+  @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully updated.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
-  async updateTransaction(@Param('id') id: string,@Body() Data: {userId:string}) {
+  async updateTransaction(@Param('id') id: string, @Body() Data: { userId: string }) {
     return await this.repeatableTransactionService.updateTransaction(id, Data.userId);
   }
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update a repeatable transaction by ID' })
+  @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
+  @ApiBody({ type: UpdateRepeatableTransactionDto })
+  @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully updated.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
   async update(@Param('id') id: string, @Body() updateRepeatableTransactionDto: UpdateRepeatableTransactionDto) {
     return await this.repeatableTransactionService.update(id, updateRepeatableTransactionDto);
@@ -40,6 +54,9 @@ export class RepeatableTransactionController {
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a repeatable transaction by ID' })
+  @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
+  @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully deleted.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
   async remove(@Param('id') id: string) {
     return await this.repeatableTransactionService.remove(id);
