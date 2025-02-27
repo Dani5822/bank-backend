@@ -3,7 +3,11 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import { ValidationPipe } from '@nestjs/common';
-import { SwaggerModule, DocumentBuilder,SwaggerDocumentOptions } from '@nestjs/swagger';
+import {
+  SwaggerModule,
+  DocumentBuilder,
+  SwaggerDocumentOptions,
+} from '@nestjs/swagger';
 
 async function main() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -23,9 +27,16 @@ async function main() {
     .setTitle('Backend Documentation')
     .setDescription('By Swagger')
     .setVersion('1.0')
-    .addBearerAuth()
+    .addBearerAuth(
+      { 
+        type: 'http', 
+        scheme: 'bearer',
+        bearerFormat: 'JWT' 
+      },
+      'access-token',
+    )
     .build();
-  
+
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
 
