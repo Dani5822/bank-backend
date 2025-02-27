@@ -93,6 +93,7 @@ export class RepeatableTransactionService {
             bankAccountId: transaction.accountId,
             userId: userId,
             createdAt: nextDate,
+            RepeatableTransactionId: transaction.id,
           });
           await this.update(tranId, { lastChange: nextDate });
           return await this.updateTransaction(tranId, userId);

@@ -1,4 +1,5 @@
-import { ExpenseCategory, Metric } from "@prisma/client";
+import { ExpenseCategory, Metric, RepeatableTransaction } from "@prisma/client";
+import { IsOptional } from "class-validator";
 
 
 export class CreateExpenseDto {
@@ -8,4 +9,6 @@ export class CreateExpenseDto {
   userId: string;
   bankAccountId: string;
   createdAt?: Date;
+  @IsOptional()
+  RepeatableTransactionId?: string;
 }

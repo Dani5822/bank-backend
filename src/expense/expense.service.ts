@@ -5,32 +5,52 @@ import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class ExpenseService {
-  db:PrismaService
-  constructor(db:PrismaService){
-    this.db=db
+  db: PrismaService;
+  constructor(db: PrismaService) {
+    this.db = db;
   }
   async create(createExpenseDto: CreateExpenseDto) {
-    const x=await this.db.expense.create({
-      data: {
-        total: parseFloat(createExpenseDto.total.toString()),
-        category: createExpenseDto.category,
-        description: createExpenseDto.description,
-        User: {
-          connect: { id: createExpenseDto.userId }
+    let x = null;
+    if (createExpenseDto.RepeatableTransactionId) {
+      x = await this.db.expense.create({
+        data: {
+          total: parseFloat(createExpenseDto.total.toString()),
+          category: createExpenseDto.category,
+          description: createExpenseDto.description,
+          User: {
+            connect: { id: createExpenseDto.userId },
+          },
+          Account: {
+            connect: { id: createExpenseDto.bankAccountId },
+          },
+          RepeatableTransaction: {
+            connect: { id: createExpenseDto.RepeatableTransactionId },
+          },
         },
-        Account: {
-          connect: { id: createExpenseDto.bankAccountId }
-        }
-      }
-    });
+      });
+    } else {
+      x = await this.db.expense.create({
+        data: {
+          total: parseFloat(createExpenseDto.total.toString()),
+          category: createExpenseDto.category,
+          description: createExpenseDto.description,
+          User: {
+            connect: { id: createExpenseDto.userId },
+          },
+          Account: {
+            connect: { id: createExpenseDto.bankAccountId },
+          },
+        },
+      });
+    }
     await this.db.account.update({
       where: { id: createExpenseDto.bankAccountId },
       data: {
         total: {
-          decrement: parseFloat(createExpenseDto.total.toString())
-        }
-      }
-    })
+          decrement: parseFloat(createExpenseDto.total.toString()),
+        },
+      },
+    });
     return x;
   }
 
@@ -39,7 +59,10 @@ export class ExpenseService {
   }
 
   findOne(id: string) {
-    return this.db.expense.findUnique({ where: { id: id }, include: { User: true,Account:true} });
+    return this.db.expense.findUnique({
+      where: { id: id },
+      include: { User: true, Account: true },
+    });
   }
 
   update(id: string, updateExpenseDto: UpdateExpenseDto) {
@@ -62,10 +85,10 @@ export class ExpenseService {
   async remove(id: string) {
     this.db.account.update({
       where: { id: id },
-      data:{
-        total:0
-      }
-    })
+      data: {
+        total: 0,
+      },
+    });
     return this.db.expense.deleteMany({ where: { accountId: id } });
   }
 }

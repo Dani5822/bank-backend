@@ -82,6 +82,8 @@ model Expense {
   updatedAt    DateTime        @updatedAt
   Account      Account         @relation(fields: [accountId], references: [id])
   accountId    String          @db.ObjectId
+  RepeatableTransaction RepeatableTransaction? @relation(fields: [repeatableTransactionId], references: [id])
+  repeatableTransactionId String? @db.ObjectId
 }
 
 model Account {
@@ -113,4 +115,5 @@ model RepeatableTransaction {
   total        Float
   category     ExpenseCategory @default(Other)
   description  String?
+  Expenses Expense[] 
 }
