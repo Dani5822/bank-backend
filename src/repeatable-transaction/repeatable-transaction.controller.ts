@@ -5,7 +5,7 @@ import { UpdateRepeatableTransactionDto } from './dto/update-repeatable-transact
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('Repeatable Transactions')
+@ApiTags('Repeatable Transaction')
 @Controller('repeatabletransaction')
 export class RepeatableTransactionController {
   constructor(private readonly repeatableTransactionService: RepeatableTransactionService) {}

@@ -5,7 +5,7 @@ import { UpdateIncomeDto } from './dto/update-income.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('incomes')
+@ApiTags('Income')
 @Controller('Income')
 export class IncomeController {
   constructor(private readonly IncomeService: IncomeService) {}

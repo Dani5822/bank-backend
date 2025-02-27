@@ -5,7 +5,7 @@ import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('expenses')
+@ApiTags('Expense')
 @Controller('expense')
 export class ExpenseController {
   constructor(private readonly expenseService: ExpenseService) {}
