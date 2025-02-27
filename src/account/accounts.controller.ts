@@ -4,7 +4,9 @@ import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
+import {ApiBearerAuth} from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @ApiTags('accounts')
 @Controller('accounts')
 export class AccountsController {

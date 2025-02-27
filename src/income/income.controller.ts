@@ -4,7 +4,9 @@ import { CreateIncomeDto } from './dto/create-income.dto';
 import { UpdateIncomeDto } from './dto/update-income.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
+import {ApiBearerAuth} from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @ApiTags('Income')
 @Controller('Income')
 export class IncomeController {

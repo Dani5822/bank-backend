@@ -23,10 +23,9 @@ async function main() {
     .setTitle('Backend Documentation')
     .setDescription('By Swagger')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
-  const options: SwaggerDocumentOptions = {
-    operationIdFactory: (controllerKey: string, methodKey: string) => methodKey,
-  };
+  
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
 

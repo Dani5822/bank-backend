@@ -6,8 +6,10 @@ import { AuthService } from '../auth/auth.service';
 import { PassportLocalGuard } from '../auth/guards/passport.local.guard';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
+import {ApiBearerAuth} from '@nestjs/swagger';
 
 @ApiTags('User')
+@ApiBearerAuth() 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService, private authService: AuthService) {}

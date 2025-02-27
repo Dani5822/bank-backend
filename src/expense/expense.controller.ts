@@ -4,7 +4,9 @@ import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/swagger';
+import {ApiBearerAuth} from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @ApiTags('Expense')
 @Controller('expense')
 export class ExpenseController {
