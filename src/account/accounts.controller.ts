@@ -7,7 +7,7 @@ import { ApiTags, ApiOperation, ApiBody, ApiParam, ApiResponse } from '@nestjs/s
 import {ApiBearerAuth} from '@nestjs/swagger';
 
 @ApiBearerAuth()
-@ApiTags('accounts')
+@ApiTags('Account')
 @Controller('accounts')
 export class AccountsController {
   constructor(private readonly AccountsService: AccountsService) {}
