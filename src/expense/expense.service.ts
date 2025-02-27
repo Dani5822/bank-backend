@@ -54,10 +54,6 @@ export class ExpenseService {
     return x;
   }
 
-  findAll() {
-    return `This action returns all expense`;
-  }
-
   findOne(id: string) {
     return this.db.expense.findUnique({
       where: { id: id },
