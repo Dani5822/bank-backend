@@ -34,10 +34,6 @@ export class IncomeService {
     return x;
   }
 
-  findAll() {
-    return `This action returns all Income`;
-  }
-
   findOne(id: number) {
     return `This action returns a #${id} Income`;
   }
