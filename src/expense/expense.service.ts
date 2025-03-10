@@ -26,6 +26,7 @@ export class ExpenseService {
           RepeatableTransaction: {
             connect: { id: createExpenseDto.RepeatableTransactionId },
           },
+          createdAt:createExpenseDto.createdAt
         },
       });
     } else {

@@ -219,6 +219,9 @@ export class AccountsService {
       where: { accountId: id },
     });
 
+    await this.db.repeatableTransaction.deleteMany({
+      where: { accountId: id },});
+
     let x = await this.db.account.delete({ where: { id: id } });
     return x;
   }

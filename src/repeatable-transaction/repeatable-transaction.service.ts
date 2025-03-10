@@ -20,14 +20,14 @@ export class RepeatableTransactionService {
   create(createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
     return this.db.repeatableTransaction.create({
       data: {
-        total: createRepeatableTransactionDto.total,
+        total: parseFloat(createRepeatableTransactionDto.total.toString()),
         category: createRepeatableTransactionDto.category,
         description: createRepeatableTransactionDto.description,
-        repeatAmount: createRepeatableTransactionDto.repeatAmount,
+        repeatAmount: parseInt(createRepeatableTransactionDto.repeatAmount.toString()),
         repeatMetric: createRepeatableTransactionDto.repeatMetric,
-        repeatStart: createRepeatableTransactionDto.repeatStart,
-        lastChange: createRepeatableTransactionDto.repeatStart,
-        repeatEnd: createRepeatableTransactionDto.repeatEnd,
+        repeatStart: new Date(createRepeatableTransactionDto.repeatStart),
+        lastChange: new Date(createRepeatableTransactionDto.repeatStart),
+        repeatEnd: new Date(createRepeatableTransactionDto.repeatEnd),
         Account: {
           connect: {
             id: createRepeatableTransactionDto.accountId,
@@ -42,6 +42,9 @@ export class RepeatableTransactionService {
       where: {
         id: id,
       },
+      include: {
+        Expenses: true,
+      }
     });
   }
 
@@ -80,8 +83,8 @@ export class RepeatableTransactionService {
       let currentDate = new Date(this.getdaymountyear(new Date()));
     
       if (
-        new Date(this.getdaymountyear(transaction.repeatStart)) <= currentDate &&
-        new Date(this.getdaymountyear(transaction.repeatEnd)) >= currentDate
+        new Date(this.getdaymountyear(transaction.repeatStart)) <=
+        new Date(this.getdaymountyear(transaction.repeatEnd))
       ) {
         let nextTransactionDate: Date = new Date(transaction.lastChange);
 
@@ -121,7 +124,7 @@ export class RepeatableTransactionService {
             );
             break;
         }
-        if (new Date(this.getdaymountyear(nextTransactionDate)) <= currentDate) {
+        if (new Date(this.getdaymountyear(nextTransactionDate)) <= currentDate && new Date(this.getdaymountyear(nextTransactionDate))<= new Date(this.getdaymountyear(transaction.repeatEnd))) {
           return await createExpenseAndUpdateTransaction(nextTransactionDate);
         } else {
           return transaction;
@@ -136,6 +139,11 @@ export class RepeatableTransactionService {
   }
 
   remove(id: string) {
+    this.db.expense.deleteMany({
+      where: {
+        repeatableTransactionId: id,
+      }
+      });
     return this.db.repeatableTransaction.delete({
       where: {
         id: id,
