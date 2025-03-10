@@ -51,4 +51,11 @@ export class CreateRepeatableTransactionDto {
     example: '2026-03-01T00:00:00Z'
   })
   repeatEnd?: Date;
+
+
+  @ApiProperty({
+    description: 'The ID of the User associated with the repeatable transaction',
+    example: 'user123'
+  })
+  userId: string;
 }

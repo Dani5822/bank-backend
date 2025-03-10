@@ -9,7 +9,6 @@ import { UpdateRepeatableTransactionDto } from './dto/update-repeatable-transact
 import { PrismaService } from 'src/prisma.service';
 import { RepeatableTransaction } from '@prisma/client';
 import { ExpenseService } from 'src/expense/expense.service';
-import { finished } from 'stream';
 
 @Injectable()
 export class RepeatableTransactionService {
@@ -17,8 +16,8 @@ export class RepeatableTransactionService {
     private db: PrismaService,
     private expenseService: ExpenseService,
   ) {}
-  create(createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
-    return this.db.repeatableTransaction.create({
+  async create(createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
+    const x= await this.db.repeatableTransaction.create({
       data: {
         total: parseFloat(createRepeatableTransactionDto.total.toString()),
         category: createRepeatableTransactionDto.category,
@@ -35,6 +34,9 @@ export class RepeatableTransactionService {
         },
       },
     });
+
+    await this.updateTransaction(x.id, createRepeatableTransactionDto.userId);
+    return x;
   }
 
   findOne(id: string) {
