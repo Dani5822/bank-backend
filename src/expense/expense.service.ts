@@ -58,7 +58,6 @@ export class ExpenseService {
   findOne(id: string) {
     return this.db.expense.findUnique({
       where: { id: id },
-      include: { User: true, Account: true },
     });
   }
 

@@ -34,8 +34,10 @@ export class IncomeService {
     return x;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} Income`;
+  findOne(id: string) {
+    return this.db.income.findUnique({
+      where: { id: id }
+    });
   }
 
   update(id: string, updateIncomeDto: UpdateIncomeDto) {

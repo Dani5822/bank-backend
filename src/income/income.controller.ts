@@ -33,11 +33,11 @@ export class IncomeController {
   @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
-    const income = this.IncomeService.findOne(+id);
+    const income = this.IncomeService.findOne(id);
     if (income == undefined) {
       throw new NotFoundException('Not Found this income');
     } else {
-      return this.IncomeService.findOne(+id);
+      return this.IncomeService.findOne(id);
     }
   }
 

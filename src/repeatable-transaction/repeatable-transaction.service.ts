@@ -44,9 +44,6 @@ export class RepeatableTransactionService {
       where: {
         id: id,
       },
-      include: {
-        Expenses: true,
-      }
     });
   }
 
@@ -141,11 +138,6 @@ export class RepeatableTransactionService {
   }
 
   remove(id: string) {
-    this.db.expense.deleteMany({
-      where: {
-        repeatableTransactionId: id,
-      }
-      });
     return this.db.repeatableTransaction.delete({
       where: {
         id: id,

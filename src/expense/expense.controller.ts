@@ -33,9 +33,9 @@ export class ExpenseController {
   @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
   findOne(@Param('id') id: string) {
-    const income = this.expenseService.findOne(id);
-    if (income == undefined) {
-      throw new NotFoundException('Not Found this income');
+    const expense = this.expenseService.findOne(id);
+    if (expense == undefined) {
+      throw new NotFoundException('Not Found this expense');
     } else {
       return this.expenseService.findOne(id);
     }
