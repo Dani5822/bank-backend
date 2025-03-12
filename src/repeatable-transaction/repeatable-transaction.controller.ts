@@ -39,8 +39,8 @@ export class RepeatableTransactionController {
   @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully updated.' })
   @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
-  async updateTransaction(@Param('id') id: string, @Body() Data: { userId: string }) {
-    return await this.repeatableTransactionService.updateTransaction(id, Data.userId);
+  async updateTransaction(@Param('id') accountId: string, @Body() Data: { userId: string }) {
+    return await this.repeatableTransactionService.updateTransaction(accountId, Data.userId);
   }
 
   @Patch(':id')
