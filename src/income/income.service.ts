@@ -62,6 +62,6 @@ export class IncomeService {
   }
 
   async remove(id: string) {
-    this.db.income.delete({ where: { id: id } });
+    return this.db.income.delete({ where: { id: id } });
   }
 }

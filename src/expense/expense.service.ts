@@ -83,12 +83,6 @@ export class ExpenseService {
   }
 
   async remove(id: string) {
-    this.db.account.update({
-      where: { id: id },
-      data: {
-        total: 0,
-      },
-    });
-    return this.db.expense.deleteMany({ where: { accountId: id } });
+    return this.db.expense.delete({ where: { id: id } });
   }
 }
