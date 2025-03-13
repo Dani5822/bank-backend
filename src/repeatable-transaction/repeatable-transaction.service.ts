@@ -37,7 +37,7 @@ export class RepeatableTransactionService {
       },
     });
 
-    await this.updateTransaction(x.id, createRepeatableTransactionDto.userId);
+    await this.updateTrans(createRepeatableTransactionDto.accountId,x ,createRepeatableTransactionDto.userId);
     return x;
   }
 
@@ -126,7 +126,6 @@ export class RepeatableTransactionService {
       where: { id: accountId },
       include: { RepeatableTransaction: true },
     });
-    console.log(account);
     if (account != null && account.RepeatableTransaction.length > 0) {
       account.RepeatableTransaction.forEach(async (transaction) => {
         await this.updateTrans(accountId, transaction, userId);
