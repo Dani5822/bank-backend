@@ -19,7 +19,8 @@ export class RepeatableTransactionController {
   @ApiResponse({ status: 400, description: 'Bad Request.' })
   @UseGuards(AuthGuard)
   async create(@Body() createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
-    return await this.repeatableTransactionService.create(createRepeatableTransactionDto);
+    let transaction= await this.repeatableTransactionService.create(createRepeatableTransactionDto);
+    return transaction;
   }
 
   @Get(':id')
@@ -43,7 +44,7 @@ export class RepeatableTransactionController {
     return await this.repeatableTransactionService.updateTransaction(accountId, Data.userId);
   }
 
-  @Patch(':id')
+  /*@Patch(':id')
   @ApiOperation({ summary: 'Update a repeatable transaction by ID' })
   @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
   @ApiBody({ type: UpdateRepeatableTransactionDto })
@@ -52,7 +53,7 @@ export class RepeatableTransactionController {
   @UseGuards(AuthGuard)
   async update(@Param('id') id: string, @Body() updateRepeatableTransactionDto: UpdateRepeatableTransactionDto) {
     return await this.repeatableTransactionService.update(id, updateRepeatableTransactionDto);
-  }
+  }*/
 
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a repeatable transaction by ID' })

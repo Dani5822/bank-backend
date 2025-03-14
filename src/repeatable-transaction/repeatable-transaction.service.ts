@@ -36,7 +36,6 @@ export class RepeatableTransactionService {
         },
       },
     });
-
     await this.updateTrans(createRepeatableTransactionDto.accountId,x ,createRepeatableTransactionDto.userId);
     return x;
   }
@@ -73,7 +72,6 @@ export class RepeatableTransactionService {
   async updateTrans(accountId, transaction, userId) {
     let currentDate = new Date(this.getdaymountyear(new Date()));
     let nextTransactionDate: Date = new Date(transaction.lastChange);
-
     const createExpenseAndUpdateTransaction = async (nextDate: Date) => {
       await this.expenseService.create({
         total: transaction.total,
@@ -84,7 +82,8 @@ export class RepeatableTransactionService {
         createdAt: nextDate,
         RepeatableTransactionId: transaction.id,
       });
-      await this.update(accountId, { lastChange: nextDate });
+      this.update(transaction.id, { lastChange: nextDate });
+      transaction.lastChange = nextDate;
       return await this.updateTrans(accountId, transaction, userId);
     };
 

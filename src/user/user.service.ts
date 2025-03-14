@@ -116,7 +116,7 @@ export class UserService {
   }
 
   async loginwithtoken(email:string,password:string){
-    let x= await this.db.user.findUniqueOrThrow({
+    let x= await this.db.user.findUnique({
       where: { email: email },
     });
     if(!x){
