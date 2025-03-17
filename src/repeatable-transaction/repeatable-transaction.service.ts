@@ -82,7 +82,6 @@ export class RepeatableTransactionService {
         createdAt: nextDate,
         RepeatableTransactionId: transaction.id,
       });
-      this.update(transaction.id, { lastChange: nextDate });
       transaction.lastChange = nextDate;
       return await this.updateTrans(accountId, transaction, userId);
     };
@@ -116,6 +115,7 @@ export class RepeatableTransactionService {
     ) {
       return await createExpenseAndUpdateTransaction(nextTransactionDate);
     } else {
+      this.update(transaction.id, { lastChange: transaction.lastChange });
       return transaction;
     }
   }
