@@ -119,7 +119,7 @@ export class AccountsController {
   @ApiResponse({ status: 404, description: 'Not Found.' })
   @UseGuards(AuthGuard)
   async getOnlyUser(@Param('id') id: string) {
-    const data = await this.AccountsService.getOnlyUser(id);
+    const data = await this.AccountsService.findAllUserWithId(id);
     if (data == null) {
       throw new NotFoundException('Not Found');
     }

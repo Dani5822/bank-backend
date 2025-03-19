@@ -244,14 +244,4 @@ export class AccountsService {
     let x = await this.db.account.delete({ where: { id: id } });
     return x;
   }
-
-  getOnlyUser(id: string) {
-    return this.db.account.findUnique({
-      where: {id:id},
-      include: { Users: true },
-    })
-    
-
-    
-  }
 }
