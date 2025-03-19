@@ -76,10 +76,24 @@ export class AccountsController {
     try {
       data = await this.AccountsService.getAllExpensebyAccountID(id);
     } catch (error) {
-      return new HttpException('Not Found', 404);
+      return new HttpException('Not Found', HttpStatus.NOT_FOUND);
     }
     if (data == null) {
-      return new HttpException('Not Found', 404);
+      return new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return data;
+  }
+
+  @Get('allrepeat/:id')
+  @ApiOperation({ summary: 'Get account by ID' })
+  @ApiParam({ name: 'id', required: true, description: 'Account ID' })
+  @ApiResponse({ status: 200, description: 'The account has been successfully retrieved.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
+  @UseGuards(AuthGuard)
+  async getAllRepetableTransaction(@Param('id') id: string) {
+    const data = await this.AccountsService.getAllRepetableTransaction(id);
+    if (data == null) {
+      throw new NotFoundException('Not Found');
     }
     return data;
   }
@@ -122,7 +136,7 @@ export class AccountsController {
     try {
       const data = this.AccountsService.transfer(transferdata);
       if (data == null) {
-        throw new Error('Not enough balance');
+        throw new HttpException('Not enough balance',HttpStatus.CONFLICT);
       }
       return data;
     } catch (e) {

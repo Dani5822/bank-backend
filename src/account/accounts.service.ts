@@ -6,6 +6,15 @@ import { PrismaService } from '../prisma.service';
 @Injectable()
 export class AccountsService {
 
+  async getAllRepetableTransaction(id: string) {
+    const acc=await this.db.account.findUnique({
+      where:{id:id},
+      include:{RepeatableTransaction:true},
+    });
+
+    return acc.RepeatableTransaction;
+  }
+
   db: PrismaService;
   constructor(db: PrismaService) {
     this.db = db;
