@@ -96,11 +96,21 @@ export class AccountsService {
     return this.db.account.findUnique({ where: { id: id } });
   }
 
-  findAllUserWithId(id: string) {
-    return this.db.account.findUnique({
+  async findAllUserWithId(id: string) {
+    const ac=await this.db.account.findUnique({
       where: { id: id },
       include: { Users: true },
     });
+
+    let x=ac.Users;
+    let resoult=ac;
+    resoult.Users=[];
+    ac.userId.forEach(element => {
+      resoult.Users.push(x.find((x)=>x.id==element));
+    });
+
+    return ac
+
   }
 
   disconnectUser(id: string, userId: string) {
