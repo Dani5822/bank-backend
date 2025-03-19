@@ -34,7 +34,7 @@ export class RepeatableTransactionController {
   }
 
   @Patch('update/:id')
-  @ApiOperation({ summary: 'Update a repeatable transaction by user ID' })
+  @ApiOperation({ summary: 'Update a repeatable transaction by account ID' })
   @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
   @ApiBody({ schema: { properties: { userId: { type: 'string' } } } })
   @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully updated.' })
