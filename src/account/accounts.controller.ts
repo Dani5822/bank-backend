@@ -85,7 +85,7 @@ export class AccountsController {
   }
 
   @Get('allrepeat/:id')
-  @ApiOperation({ summary: 'Get account by ID' })
+  @ApiOperation({ summary: 'Get All repetable transaction by account ID' })
   @ApiParam({ name: 'id', required: true, description: 'Account ID' })
   @ApiResponse({ status: 200, description: 'The account has been successfully retrieved.' })
   @ApiResponse({ status: 404, description: 'Not Found.' })

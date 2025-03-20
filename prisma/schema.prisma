@@ -7,6 +7,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "./ERD.svg"
+}
+
 enum UserType {
   Admin
   User
@@ -104,6 +109,7 @@ model Account {
 
 model RepeatableTransaction {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String?
   repeatStart  DateTime @default(now())
   repeatAmount Int      @default(1)
   repeatMetric Metric   @default(Day)

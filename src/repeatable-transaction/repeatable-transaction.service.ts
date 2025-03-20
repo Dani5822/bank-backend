@@ -19,6 +19,7 @@ export class RepeatableTransactionService {
   async create(createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
     const x = await this.db.repeatableTransaction.create({
       data: {
+        name: createRepeatableTransactionDto.name,
         total: parseFloat(createRepeatableTransactionDto.total.toString()),
         category: createRepeatableTransactionDto.category,
         description: createRepeatableTransactionDto.description,
@@ -136,6 +137,7 @@ export class RepeatableTransactionService {
   }
 
   remove(id: string) {
+    console.log(id);
     return this.db.repeatableTransaction.delete({
       where: {
         id: id,

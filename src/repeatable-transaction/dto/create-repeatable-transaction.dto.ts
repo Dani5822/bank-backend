@@ -58,4 +58,10 @@ export class CreateRepeatableTransactionDto {
     example: 'user123'
   })
   userId: string;
+
+  @ApiProperty({
+    description: 'The name of the repetabel transaction',
+    example: 'Rent Payment'
+  })
+  name?: string;
 }
