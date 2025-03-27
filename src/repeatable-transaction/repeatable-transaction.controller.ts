@@ -55,6 +55,16 @@ export class RepeatableTransactionController {
     return await this.repeatableTransactionService.update(id, updateRepeatableTransactionDto);
   }*/
 
+  @Delete('stop/:id')
+  @ApiOperation({ summary: 'Stop a repeatable transaction by ID' })
+  @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
+  @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully Stoped.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
+  @UseGuards(AuthGuard)
+  async stoprepetable(@Param('id') id: string) {
+    return await this.repeatableTransactionService.stoprepetable(id);
+  }
+
   @Delete(':id')
   @ApiOperation({ summary: 'Delete a repeatable transaction by ID' })
   @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
