@@ -12,6 +12,7 @@ import { ExpenseService } from 'src/expense/expense.service';
 
 @Injectable()
 export class RepeatableTransactionService {
+  
   constructor(
     private db: PrismaService,
     private expenseService: ExpenseService,
@@ -19,6 +20,7 @@ export class RepeatableTransactionService {
   async create(createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
     const x = await this.db.repeatableTransaction.create({
       data: {
+        name: createRepeatableTransactionDto.name,
         total: parseFloat(createRepeatableTransactionDto.total.toString()),
         category: createRepeatableTransactionDto.category,
         description: createRepeatableTransactionDto.description,
@@ -135,7 +137,20 @@ export class RepeatableTransactionService {
     }
   }
 
+  stoprepetable(id: string) {
+    return this.db.repeatableTransaction.delete({
+      where: {
+        id: id,
+      },
+    });
+  }
+
   remove(id: string) {
+    this.db.expense.deleteMany({
+      where: {
+        repeatableTransactionId: id,
+      },
+    })
     return this.db.repeatableTransaction.delete({
       where: {
         id: id,
