@@ -2,6 +2,7 @@ import { ForbiddenException, Injectable } from '@nestjs/common';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { PrismaService } from 'src/prisma.service';
+import exp from 'constants';
 
 @Injectable()
 export class ExpenseService {
@@ -83,6 +84,17 @@ export class ExpenseService {
   }
 
   async remove(id: string) {
+    const expense = await this.db.expense.findUnique({where: {id:id}});
+    await this.db.account.update({
+      where: { 
+        id:expense.accountId
+       },
+      data: {
+        total: {
+          increment: expense.total,
+        },
+      },
+    });
     return this.db.expense.delete({ where: { id: id } });
   }
 }

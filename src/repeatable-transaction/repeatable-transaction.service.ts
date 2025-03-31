@@ -72,7 +72,7 @@ export class RepeatableTransactionService {
   }
 
   async updateTrans(accountId, transaction, userId) {
-    let currentDate = new Date(this.getdaymountyear(new Date()));
+    let currentDate = new Date();
     let nextTransactionDate: Date = new Date(transaction.lastChange);
     const createExpenseAndUpdateTransaction = async (nextDate: Date) => {
       await this.expenseService.create({
@@ -110,6 +110,7 @@ export class RepeatableTransactionService {
         );
         break;
     }
+
     if (
       new Date(this.getdaymountyear(nextTransactionDate)) <= currentDate &&
       new Date(this.getdaymountyear(nextTransactionDate)) <=
@@ -145,11 +146,11 @@ export class RepeatableTransactionService {
     });
   }
 
-  remove(id: string) {
-    this.db.expense.deleteMany({
-      where: {
-        repeatableTransactionId: id,
-      },
+  async remove(id: string) {
+    const data = await this.db.repeatableTransaction.findUnique({where: {id:id}, include: {Expenses:true}})
+
+    data.Expenses.forEach(async item => {
+      await this.expenseService.remove(item.id)
     })
     return this.db.repeatableTransaction.delete({
       where: {

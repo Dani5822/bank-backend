@@ -20,6 +20,7 @@ export class RepeatableTransactionController {
   @UseGuards(AuthGuard)
   async create(@Body() createRepeatableTransactionDto: CreateRepeatableTransactionDto) {
     let transaction= await this.repeatableTransactionService.create(createRepeatableTransactionDto);
+    console.log(transaction)
     return transaction;
   }
 

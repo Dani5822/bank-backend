@@ -62,6 +62,17 @@ export class IncomeService {
   }
 
   async remove(id: string) {
+    const income = await this.db.income.findUnique({where: {id:id}});
+    await this.db.account.update({
+      where: { 
+        id:income.accountId
+       },
+      data: {
+        total: {
+          decrement: income.total,
+        },
+      },
+    });
     return this.db.income.delete({ where: { id: id } });
   }
 }
