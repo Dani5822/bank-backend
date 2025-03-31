@@ -9,9 +9,11 @@ import { UpdateRepeatableTransactionDto } from './dto/update-repeatable-transact
 import { PrismaService } from 'src/prisma.service';
 import { Account, RepeatableTransaction } from '@prisma/client';
 import { ExpenseService } from 'src/expense/expense.service';
+import { console } from 'inspector';
 
 @Injectable()
 export class RepeatableTransactionService {
+  
   
   constructor(
     private db: PrismaService,
@@ -50,6 +52,17 @@ export class RepeatableTransactionService {
     });
   }
 
+  findOneWithExpenses(id: string) {
+    return this.db.repeatableTransaction.findUnique({
+      where: {
+        id: id,
+      },
+      include: {
+        Expenses: true,
+      },
+    });
+  }
+
   async update(
     id: string,
     updateRepeatableTransactionDto: UpdateRepeatableTransactionDto,
@@ -59,10 +72,35 @@ export class RepeatableTransactionService {
         id: id,
       },
       data: {
-        ...updateRepeatableTransactionDto,
+        total: parseFloat(updateRepeatableTransactionDto.total.toString()),
+        name: updateRepeatableTransactionDto.name,
+        category: updateRepeatableTransactionDto.category,
+        description: updateRepeatableTransactionDto.description,
+        repeatAmount: parseInt(updateRepeatableTransactionDto.repeatAmount.toString()),
+        repeatMetric: updateRepeatableTransactionDto.repeatMetric,
+        repeatStart: new Date(updateRepeatableTransactionDto.repeatStart),
+        repeatEnd: new Date(updateRepeatableTransactionDto.repeatEnd),
       },
     });
   }
+
+  async updateLastChange(
+    id: string,
+    updateRepeatableTransactionDto: UpdateRepeatableTransactionDto,
+  ) {
+    return await this.db.repeatableTransaction.update({
+      where: {
+        id: id,
+      },
+      data: {
+        ...updateRepeatableTransactionDto
+      },
+    });
+  }
+
+
+
+
 
   getdaymountyear(date: Date) {
     let day = date.getDate() + 1;
@@ -118,7 +156,7 @@ export class RepeatableTransactionService {
     ) {
       return await createExpenseAndUpdateTransaction(nextTransactionDate);
     } else {
-      this.update(transaction.id, { lastChange: transaction.lastChange });
+      this.updateLastChange(transaction.id, { lastChange: transaction.lastChange });
       return transaction;
     }
   }

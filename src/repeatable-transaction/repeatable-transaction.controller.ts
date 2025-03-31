@@ -24,6 +24,16 @@ export class RepeatableTransactionController {
     return transaction;
   }
 
+  @Get('expense/:id')
+  @ApiOperation({ summary: 'Get a repeatable transaction by ID with Expenses' })
+  @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
+  @ApiResponse({ status: 200, description: 'The repeatable transaction has been successfully retrieved.' })
+  @ApiResponse({ status: 404, description: 'Not Found.' })
+  @UseGuards(AuthGuard)
+  findOneWithExpenses(@Param('id') id: string) {
+    return this.repeatableTransactionService.findOneWithExpenses(id);
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get a repeatable transaction by ID' })
   @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
@@ -33,6 +43,7 @@ export class RepeatableTransactionController {
   findOne(@Param('id') id: string) {
     return this.repeatableTransactionService.findOne(id);
   }
+
 
   @Patch('update/:id')
   @ApiOperation({ summary: 'Update a repeatable transaction by account ID' })
@@ -45,7 +56,7 @@ export class RepeatableTransactionController {
     return await this.repeatableTransactionService.updateTransaction(accountId, Data.userId);
   }
 
-  /*@Patch(':id')
+  @Patch(':id')
   @ApiOperation({ summary: 'Update a repeatable transaction by ID' })
   @ApiParam({ name: 'id', required: true, description: 'Repeatable Transaction ID' })
   @ApiBody({ type: UpdateRepeatableTransactionDto })
@@ -54,7 +65,7 @@ export class RepeatableTransactionController {
   @UseGuards(AuthGuard)
   async update(@Param('id') id: string, @Body() updateRepeatableTransactionDto: UpdateRepeatableTransactionDto) {
     return await this.repeatableTransactionService.update(id, updateRepeatableTransactionDto);
-  }*/
+  }
 
   @Delete('stop/:id')
   @ApiOperation({ summary: 'Stop a repeatable transaction by ID' })
