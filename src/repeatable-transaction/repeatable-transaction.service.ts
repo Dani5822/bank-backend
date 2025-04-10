@@ -162,16 +162,21 @@ export class RepeatableTransactionService {
   }
 
   async updateTransaction(accountId: string, userId: string) {
-    const account = await this.db.account.findUnique({
-      where: { id: accountId },
-      include: { RepeatableTransaction: true },
-    });
-    if (account != null && account.RepeatableTransaction.length > 0) {
-      account.RepeatableTransaction.forEach(async (transaction) => {
-        await this.updateTrans(accountId, transaction, userId);
+    try {
+      const account = await this.db.account.findUnique({
+        where: { id: accountId },
+        include: { RepeatableTransaction: true },
       });
-      return account;
-    } else {
+      if (account != null && account.RepeatableTransaction.length > 0) {
+        account.RepeatableTransaction.forEach(async (transaction) => {
+          await this.updateTrans(accountId, transaction, userId);
+        });
+        return account;
+      } else {
+        return new NotFoundException('Account not found');
+      }
+      
+    } catch (error) {
       return new NotFoundException('Account not found');
     }
   }

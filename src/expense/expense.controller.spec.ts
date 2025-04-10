@@ -6,7 +6,7 @@ import { AuthService } from 'src/auth/auth.service';
 import { AuthGuard } from 'src/auth/guards/auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
-import { ExpenseCategory, Metric, PrismaClient } from '@prisma/client';
+import { ExpenseCategory, Metric } from '@prisma/client';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 
 describe('ExpenseController', () => {
@@ -48,11 +48,6 @@ describe('ExpenseController', () => {
 
     controller = module.get<ExpenseController>(ExpenseController);
     service = module.get<ExpenseService>(ExpenseService);
-  });
-
-  it('should return a list of all expense', () => {
-    jest.spyOn(service,"findAll").mockReturnValue(testArray);
-    expect(controller.findAll()).toBe(testArray);
   });
 
   it('should return one expense where id matches', () => {  

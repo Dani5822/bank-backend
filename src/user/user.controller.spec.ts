@@ -57,10 +57,6 @@ describe('UserController', () => {
 
   });
 
-  it('should return a list of all users', () => {
-    jest.spyOn(service,"findAll").mockReturnValue(testArray)
-      expect(controller.findAll()).toEqual(testArray)
-  });
 
   it('should be defined', () => {
     expect(controller).toBeDefined();

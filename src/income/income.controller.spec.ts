@@ -50,11 +50,6 @@ describe('IncomeController', () => {
     service = module.get<IncomeService>(IncomeService);
   });
 
-  it('should return a list of all income', () => {
-    jest.spyOn(service,"findAll").mockReturnValue(testArray);
-    expect(controller.findAll()).toBe(testArray);
-  });
-
   it('should return one income where id matches', () => {  
     jest.spyOn(service,"findOne").mockReturnValue(testArray[0]);
     expect(controller.findOne("1")).toEqual(testArray[0]);

@@ -7,7 +7,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 enum UserType {
   Admin
   User
@@ -105,7 +104,7 @@ model Account {
 
 model RepeatableTransaction {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  name         String?
+  name         String
   repeatStart  DateTime @default(now())
   repeatAmount Int      @default(1)
   repeatMetric Metric   @default(Day)

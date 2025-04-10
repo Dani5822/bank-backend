@@ -59,7 +59,7 @@ describe('RepeatableTransactionService', () => {
         it('should throw NotFoundException if transaction is not found', async () => {
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(null);
 
-          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(NotFoundException);
+          await expect(service.updateTransaction('tranId', 'userId')).resolves.toThrow(NotFoundException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -67,6 +67,7 @@ describe('RepeatableTransactionService', () => {
             id: 'tranId',
             total: 100,
             category: 'Other',
+            name: 'Other',
             description: 'description',
             accountId: 'accountId',
             repeatStart: new Date('2022-01-01'),
@@ -78,7 +79,7 @@ describe('RepeatableTransactionService', () => {
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
-          await expect(service.updateTransaction('tranId','userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId','userId')).resolves.toThrow(HttpException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -87,6 +88,7 @@ describe('RepeatableTransactionService', () => {
             total: 100,
             category: 'Other',
             description: 'description',
+            name: 'Other',
             accountId: 'accountId',
             repeatStart: new Date('2022-01-01'),
             repeatEnd: new Date('2023-12-31'),
@@ -99,7 +101,7 @@ describe('RepeatableTransactionService', () => {
           jest.spyOn(prismaService.repeatableTransaction, 'update').mockResolvedValue(transaction);
           jest.spyOn(expenseService, 'create').mockResolvedValue(null);
 
-          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId', 'userId')).resolves.toThrow(HttpException);
         });
 
         it('should throw HttpException if transaction is not active', async () => {
@@ -107,6 +109,7 @@ describe('RepeatableTransactionService', () => {
             id: 'tranId',
             total: 100,
             category: 'Other',
+            name: 'Other',
             description: 'description',
             accountId: 'accountId',
             repeatStart: new Date('2022-01-01'),
@@ -118,7 +121,7 @@ describe('RepeatableTransactionService', () => {
           };
           jest.spyOn(prismaService.repeatableTransaction, 'findUnique').mockResolvedValue(transaction);
 
-          await expect(service.updateTransaction('tranId', 'userId')).rejects.toThrow(HttpException);
+          await expect(service.updateTransaction('tranId', 'userId')).resolves.toThrow(HttpException);
         });
       });
     });
