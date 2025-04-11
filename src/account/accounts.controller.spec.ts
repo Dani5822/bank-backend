@@ -64,8 +64,8 @@ describe('AccountsController', () => {
   });
 
   it("should find all",()=>{
-    jest.spyOn(service,"findAllbyUserId").mockResolvedValue([testArray[0],testArray[1]]) //Ha Resolved value akkor
-    expect(controller.findAllbyUserId("1")).resolves.toEqual([testArray[0],testArray[1]]) //kell ide a resolves és a toEqual
+    jest.spyOn(service,"findAllbyUserId").mockResolvedValue([testArray[0],testArray[1]])
+    expect(controller.findAllbyUserId("1")).resolves.toEqual([testArray[0],testArray[1]])
   })
 
   it("should find nothing",()=>{

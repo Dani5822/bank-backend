@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma.service';
@@ -10,6 +10,12 @@ export class UserService {
   async create(data: CreateUserDto) {
     const bcrypt = require('bcrypt');
     const saltRounds = 10;
+    let user1= await this.db.user.findUnique({
+      where: { email: data.email },
+    })
+    if(user1!==null){
+      throw new HttpException('Email already exists', HttpStatus.CONFLICT);
+    }
     let user= await this.db.user.create({
       data: {
         firstName: data.firstName,
