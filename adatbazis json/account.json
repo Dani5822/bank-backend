@@ -1,0 +1,348 @@
+[
+    {
+        "_id": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "total": 2180.0,
+        "ownerName": "Domokos Benedek",
+        "ownerId": "67f79f6f6701c9fe485262eb",
+        "createdAt": {
+            "$date": "2025-04-10T10:37:35.898Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:37.325Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f79f6f6701c9fe485262eb"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7a5dfd6375d1a21713abf"
+        },
+        "total": 0.0,
+        "ownerName": "x x",
+        "ownerId": "67f7a5dfd6375d1a21713abe",
+        "createdAt": {
+            "$date": "2025-04-10T11:05:03.491Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:05:03.491Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7a5dfd6375d1a21713abe"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "total": -27658.0,
+        "ownerName": "y  y",
+        "ownerId": "67f7a64ed6375d1a21713ac0",
+        "createdAt": {
+            "$date": "2025-04-10T11:06:54.597Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:20:25.231Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7a64ed6375d1a21713ac0"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        },
+        "total": 1790.0,
+        "ownerName": "Varga  Dávid",
+        "ownerId": "67f7a9d4d6375d1a21713ad3",
+        "createdAt": {
+            "$date": "2025-04-10T11:21:56.496Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T05:57:40.907Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7a9d4d6375d1a21713ad3"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7ad4dd6375d1a21713adc"
+        },
+        "total": 9700.0,
+        "ownerName": "Varga  Dávid",
+        "ownerId": "67f7a9d4d6375d1a21713ad3",
+        "createdAt": {
+            "$date": "2025-04-10T11:36:44.441Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T14:16:31.716Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7a9d4d6375d1a21713ad3"
+            },
+            {
+                "$oid": "67f7a64ed6375d1a21713ac0"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7cb06eb4daf7be9cef7ff"
+        },
+        "total": 0.0,
+        "ownerName": "Varga  Dávid",
+        "ownerId": "67f7a9d4d6375d1a21713ad3",
+        "createdAt": {
+            "$date": "2025-04-10T13:43:34.586Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T13:43:34.586Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7a9d4d6375d1a21713ad3"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7d19aeb4daf7be9cef800"
+        },
+        "total": 0.0,
+        "ownerName": "Varga  Dávid",
+        "ownerId": "67f7a9d4d6375d1a21713ad3",
+        "createdAt": {
+            "$date": "2025-04-10T14:11:38.684Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T14:11:38.684Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7a9d4d6375d1a21713ad3"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7e69e1bc1caee9d6f8b07"
+        },
+        "total": 0.0,
+        "ownerName": "John Doe",
+        "ownerId": "67f7e69e1bc1caee9d6f8b06",
+        "createdAt": {
+            "$date": "2025-04-10T15:41:18.947Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T15:41:18.947Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f7e69e1bc1caee9d6f8b06"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        },
+        "total": 401.0,
+        "ownerName": "demo demo",
+        "ownerId": "67f8a9f76ac9cbfe2cd65615",
+        "createdAt": {
+            "$date": "2025-04-11T05:34:48.04Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:06:10.489Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f8a9f76ac9cbfe2cd65615"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "total": 6000.0,
+        "ownerName": "asd asd",
+        "ownerId": "67f8b1ab7dae01f0628c9669",
+        "createdAt": {
+            "$date": "2025-04-11T06:07:39.793Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T10:33:35.675Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f8b1ab7dae01f0628c9669"
+            },
+            {
+                "$oid": "67f8a9f76ac9cbfe2cd65615"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8b8b7bd650c1e0e39d5a9"
+        },
+        "total": 0.0,
+        "ownerName": "asd asd",
+        "ownerId": "67f8b1ab7dae01f0628c9669",
+        "createdAt": {
+            "$date": "2025-04-11T06:37:43.481Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:37:43.481Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f8b1ab7dae01f0628c9669"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8bba46701c9fe485262ef"
+        },
+        "total": 200.0,
+        "ownerName": "Domokos Benedek",
+        "ownerId": "67f79f6f6701c9fe485262eb",
+        "createdAt": {
+            "$date": "2025-04-11T06:50:12.978Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:58:18.673Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f79f6f6701c9fe485262eb"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8be646ac9cbfe2cd6561e"
+        },
+        "total": 200.0,
+        "ownerName": "demo demo",
+        "ownerId": "67f8a9f76ac9cbfe2cd65615",
+        "createdAt": {
+            "$date": "2025-04-11T07:01:55.429Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:03:39.211Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f8a9f76ac9cbfe2cd65615"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f910f43f9ca4352814577c"
+        },
+        "total": 0.0,
+        "ownerName": "asd asd",
+        "ownerId": "67f8b1ab7dae01f0628c9669",
+        "createdAt": {
+            "$date": "2025-04-11T12:54:12.48Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:54:12.48Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f8b1ab7dae01f0628c9669"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "total": 1.2306313E+07,
+        "ownerName": "asd asd",
+        "ownerId": "67f911cf1695a50dcc4992fe",
+        "createdAt": {
+            "$date": "2025-04-11T12:57:51.662Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T13:00:29.111Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f911cf1695a50dcc4992fe"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f9143d1695a50dcc499309"
+        },
+        "total": -2345.0,
+        "ownerName": "asd asd",
+        "ownerId": "67f911cf1695a50dcc4992fe",
+        "createdAt": {
+            "$date": "2025-04-11T13:08:13.376Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T13:08:20.208Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f911cf1695a50dcc4992fe"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f9145e1695a50dcc49930b"
+        },
+        "total": 0.0,
+        "ownerName": "asd asd",
+        "ownerId": "67f911cf1695a50dcc4992fe",
+        "createdAt": {
+            "$date": "2025-04-11T13:08:46.033Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T13:08:46.033Z"
+        },
+        "currency": "HUF",
+        "userId": [
+            {
+                "$oid": "67f911cf1695a50dcc4992fe"
+            }
+        ]
+    }
+]

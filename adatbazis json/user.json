@@ -1,0 +1,203 @@
+[
+    {
+        "_id": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "firstName": "Domokos",
+        "lastName": "Benedek",
+        "role": "User",
+        "email": "benedek12@gmail.com",
+        "password": "$2b$10$dBEGFqVcMrPX7tHq9hr.cOaDHiH44c8i0SteHeI4lm6WycJgSZv5i",
+        "createdAt": {
+            "$date": "2025-04-10T10:37:35.557Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:08:29.972Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f79f6f6701c9fe485262ec"
+            },
+            {
+                "$oid": "67f8bba46701c9fe485262ef"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7a5dfd6375d1a21713abe"
+        },
+        "firstName": "x",
+        "lastName": "x",
+        "role": "User",
+        "email": "x@gmail.com",
+        "password": "$2b$10$vL75x.ofZLXfXfrp7gTMXuOoK7Sm/kzarUJ9Hs0poyAZgDLFp0EPO",
+        "createdAt": {
+            "$date": "2025-04-10T11:05:03.345Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:05:03.345Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f7a5dfd6375d1a21713abf"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "firstName": "y ",
+        "lastName": "y",
+        "role": "User",
+        "email": "y@gmail.com",
+        "password": "$2b$10$c1uhWV4PJDWi6Lle2xBUaeHDvLZsYxouB5g3o3Mc9yhA0TTIQ0pbK",
+        "createdAt": {
+            "$date": "2025-04-10T11:06:54.546Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T14:16:31.621Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f7a64ed6375d1a21713ac1"
+            },
+            {
+                "$oid": "67f7ad4dd6375d1a21713adc"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "firstName": "Varga ",
+        "lastName": "Dávid",
+        "role": "User",
+        "email": "david@gmail.com",
+        "password": "$2b$10$U7U8Q7UdLaElLwaetyMh5.1hBKdRoOkH1nXsDYOyDTmHTHxM5.wxO",
+        "createdAt": {
+            "$date": "2025-04-10T11:21:56.436Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:21:56.436Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f7a9d4d6375d1a21713ad4"
+            },
+            {
+                "$oid": "67f7ad4dd6375d1a21713adc"
+            },
+            {
+                "$oid": "67f7cb06eb4daf7be9cef7ff"
+            },
+            {
+                "$oid": "67f7d19aeb4daf7be9cef800"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f7e69e1bc1caee9d6f8b06"
+        },
+        "firstName": "John",
+        "lastName": "Doe",
+        "role": "User",
+        "email": "john.doe@example.com",
+        "password": "$2b$10$mtE0bYH0dOGTZEs8HMHCDeUWEKd//TvqBvHT4uZVBc.xZZr0ltnQy",
+        "createdAt": {
+            "$date": "2025-04-10T15:41:18.744Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T15:41:18.744Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f7e69e1bc1caee9d6f8b07"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "firstName": "demo",
+        "lastName": "demo",
+        "role": "User",
+        "email": "demo@gmail.com",
+        "password": "$2b$10$1DHNHou2t0e92JA2NjNiUeY./cDWQR814gx5m11cfpsrdm7KWzY5y",
+        "createdAt": {
+            "$date": "2025-04-11T05:34:47.32Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T10:33:35.46Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f8a9f86ac9cbfe2cd65616"
+            },
+            {
+                "$oid": "67f8be646ac9cbfe2cd6561e"
+            },
+            {
+                "$oid": "67f8b1ab7dae01f0628c966a"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "firstName": "asd",
+        "lastName": "asd",
+        "role": "User",
+        "email": "asd@gmail.com",
+        "password": "$2b$10$lpgTnHQ3NT1cUDBxQiHRZuPNPtSQukVPP9rFF7.qe8t1FvM9sXI7C",
+        "createdAt": {
+            "$date": "2025-04-11T06:07:39.573Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:07:39.573Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f8b1ab7dae01f0628c966a"
+            },
+            {
+                "$oid": "67f8b8b7bd650c1e0e39d5a9"
+            },
+            {
+                "$oid": "67f910f43f9ca4352814577c"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "firstName": "asd",
+        "lastName": "asd",
+        "role": "User",
+        "email": "asdd@gmail.com",
+        "password": "$2b$10$Bkg5bD5CgYELgu7ts98X7eb8WCnxhnvqrFTU86V6vTcf/45oyqezC",
+        "createdAt": {
+            "$date": "2025-04-11T12:57:51.581Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T13:01:20.446Z"
+        },
+        "accountId": [
+            {
+                "$oid": "67f911cf1695a50dcc4992ff"
+            },
+            {
+                "$oid": "67f9143d1695a50dcc499309"
+            },
+            {
+                "$oid": "67f9145e1695a50dcc49930b"
+            }
+        ]
+    }
+]

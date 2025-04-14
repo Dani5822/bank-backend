@@ -1,0 +1,1352 @@
+[
+    {
+        "_id": {
+            "$oid": "67f7a73ad6375d1a21713ac2"
+        },
+        "total": 1200.0,
+        "category": "Rent",
+        "description": "rent",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T11:10:50.15Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:10:50.15Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a912d6375d1a21713ac5"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-05-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:42.385Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a912d6375d1a21713ac6"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-06-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:42.561Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a912d6375d1a21713ac7"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-07-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:42.744Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a912d6375d1a21713ac8"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-08-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:42.918Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a913d6375d1a21713ac9"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-09-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:43.118Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a913d6375d1a21713aca"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-10-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:43.292Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a913d6375d1a21713acb"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-11-09T01:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:43.466Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a913d6375d1a21713acc"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2024-12-09T01:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:43.651Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a913d6375d1a21713acd"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2025-01-09T01:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:43.825Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a914d6375d1a21713ace"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2025-02-09T01:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:44Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a914d6375d1a21713acf"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2025-03-09T01:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:44.19Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a914d6375d1a21713ad0"
+        },
+        "total": 2300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2025-04-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:18:44.366Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a912d6375d1a21713ac4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7a979d6375d1a21713ad2"
+        },
+        "total": 200.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "createdAt": {
+            "$date": "2025-04-04T23:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:20:25.126Z"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7a979d6375d1a21713ad1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7ab8cd6375d1a21713ad7"
+        },
+        "total": 200.0,
+        "category": "Rent",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T11:29:16.509Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:29:16.509Z"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7ab9fd6375d1a21713ad9"
+        },
+        "total": 400.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T11:29:35.953Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:29:35.953Z"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7cb03eb4daf7be9cef7fe"
+        },
+        "total": 10.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T13:43:31.799Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T13:43:31.799Z"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7d28eeb4daf7be9cef804"
+        },
+        "total": 300.0,
+        "category": "Transport",
+        "description": "Vili",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T14:15:41.325Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T14:15:41.325Z"
+        },
+        "accountId": {
+            "$oid": "67f7ad4dd6375d1a21713adc"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8af546ac9cbfe2cd65617"
+        },
+        "total": 200.0,
+        "category": "Shopping",
+        "description": "Sad money",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T05:57:40.794Z"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f7d244eb4daf7be9cef802"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8b3986ac9cbfe2cd65618"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T06:15:52.818Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:15:52.818Z"
+        },
+        "accountId": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8b4576ac9cbfe2cd6561b"
+        },
+        "total": 200.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:19:03.286Z"
+        },
+        "accountId": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8b4576ac9cbfe2cd6561a"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bdb98fb3bf568fa50d5e"
+        },
+        "total": 500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-05T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:05.745Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8bdb98fb3bf568fa50d5d"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bdba8fb3bf568fa50d5f"
+        },
+        "total": 500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-06T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:06.009Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8bdb98fb3bf568fa50d5d"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bdba8fb3bf568fa50d60"
+        },
+        "total": 500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-07T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:06.23Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8bdb98fb3bf568fa50d5d"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bdba8fb3bf568fa50d61"
+        },
+        "total": 500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-08T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:06.451Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8bdb98fb3bf568fa50d5d"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bdba8fb3bf568fa50d62"
+        },
+        "total": 500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:06.704Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8bdb98fb3bf568fa50d5d"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bdba8fb3bf568fa50d63"
+        },
+        "total": 500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:06.913Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8bdb98fb3bf568fa50d5d"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8becb6ac9cbfe2cd6561f"
+        },
+        "total": 200.0,
+        "category": "Transfer",
+        "description": "Transfer to: demo demo",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T07:03:39.115Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:03:39.115Z"
+        },
+        "accountId": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c304bd650c1e0e39d5ac"
+        },
+        "total": 300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-04T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:21:40.654Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c304bd650c1e0e39d5ab"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c304bd650c1e0e39d5ad"
+        },
+        "total": 300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-05T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:21:40.869Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c304bd650c1e0e39d5ab"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c305bd650c1e0e39d5ae"
+        },
+        "total": 300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-06T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:21:41.078Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c304bd650c1e0e39d5ab"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c305bd650c1e0e39d5af"
+        },
+        "total": 300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-07T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:21:41.281Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c304bd650c1e0e39d5ab"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c305bd650c1e0e39d5b0"
+        },
+        "total": 300.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-08T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:21:41.485Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c304bd650c1e0e39d5ab"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b2"
+        },
+        "total": 2500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-01T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:24:54.571Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b3"
+        },
+        "total": 2500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-02T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:24:54.766Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c3c7bd650c1e0e39d5b4"
+        },
+        "total": 2500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-03T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:24:54.962Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c3c7bd650c1e0e39d5b5"
+        },
+        "total": 2500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-04T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:24:55.156Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c3c7bd650c1e0e39d5b6"
+        },
+        "total": 2500.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "createdAt": {
+            "$date": "2025-04-05T22:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:24:55.35Z"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f8c3c6bd650c1e0e39d5b1"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f912291695a50dcc499302"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-05T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:59:21.382Z"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f912291695a50dcc499301"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f912291695a50dcc499303"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-06T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:59:21.675Z"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f912291695a50dcc499301"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f912291695a50dcc499304"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-07T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:59:21.913Z"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f912291695a50dcc499301"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f9122a1695a50dcc499305"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-08T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:59:22.146Z"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f912291695a50dcc499301"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f9122a1695a50dcc499306"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:59:22.394Z"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f912291695a50dcc499301"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f9122a1695a50dcc499307"
+        },
+        "total": 1000.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T12:59:22.627Z"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67f912291695a50dcc499301"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f914441695a50dcc49930a"
+        },
+        "total": 2345.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T13:08:19.716Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T13:08:19.716Z"
+        },
+        "accountId": {
+            "$oid": "67f9143d1695a50dcc499309"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb61b828797a84fb0cd5e2"
+        },
+        "total": 1500.0,
+        "category": "Transport",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-13T07:03:20.029Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T07:03:20.029Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb61fb28797a84fb0cd5e4"
+        },
+        "total": 50.0,
+        "category": "Transaction",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T07:04:27.286Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb61fb28797a84fb0cd5e3"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb61fb28797a84fb0cd5e5"
+        },
+        "total": 50.0,
+        "category": "Transaction",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-12T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T07:04:27.48Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb61fb28797a84fb0cd5e3"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7bf228797a84fb0cd5e7"
+        },
+        "total": 100.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-13T08:55:14.705Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:14.705Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0728797a84fb0cd5e9"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-02T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:35.228Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0728797a84fb0cd5ea"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-03T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:35.431Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0728797a84fb0cd5eb"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-04T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:35.629Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0728797a84fb0cd5ec"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-05T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:35.827Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0828797a84fb0cd5ed"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-06T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:36.024Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0828797a84fb0cd5ee"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-07T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:36.216Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0828797a84fb0cd5ef"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-08T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:36.41Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0828797a84fb0cd5f0"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-09T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:36.614Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0828797a84fb0cd5f1"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:36.82Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0928797a84fb0cd5f2"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:37.01Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7c0928797a84fb0cd5f3"
+        },
+        "total": 20.0,
+        "category": "Shopping",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "createdAt": {
+            "$date": "2025-04-12T00:00:00Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:37.21Z"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "repeatableTransactionId": {
+            "$oid": "67fb7c0728797a84fb0cd5e8"
+        }
+    }
+]

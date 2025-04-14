@@ -1,0 +1,322 @@
+[
+    {
+        "_id": {
+            "$oid": "67f7a745d6375d1a21713ac3"
+        },
+        "total": 1342.0,
+        "category": "Salary",
+        "description": "salary",
+        "userId": {
+            "$oid": "67f7a64ed6375d1a21713ac0"
+        },
+        "accountId": {
+            "$oid": "67f7a64ed6375d1a21713ac1"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T11:11:01.232Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:11:01.232Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7ab91d6375d1a21713ad8"
+        },
+        "total": 1000.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T11:29:21.89Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:29:21.89Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7abaad6375d1a21713ada"
+        },
+        "total": 600.0,
+        "category": "Salary",
+        "description": "",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T11:29:46.797Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T11:29:46.797Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7d1bceb4daf7be9cef801"
+        },
+        "total": 1000.0,
+        "category": "Salary",
+        "description": "Money",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "accountId": {
+            "$oid": "67f7a9d4d6375d1a21713ad4"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T14:12:12.001Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T14:12:12.001Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f7d27deb4daf7be9cef803"
+        },
+        "total": 10000.0,
+        "category": "Transaction",
+        "description": "Ajajj",
+        "userId": {
+            "$oid": "67f7a9d4d6375d1a21713ad3"
+        },
+        "accountId": {
+            "$oid": "67f7ad4dd6375d1a21713adc"
+        },
+        "createdAt": {
+            "$date": "2025-04-10T14:15:24.624Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-10T14:15:24.624Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8b3a06ac9cbfe2cd65619"
+        },
+        "total": 1200.0,
+        "category": "Salary",
+        "description": "",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "accountId": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T06:16:00.061Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:16:00.061Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8b6646ac9cbfe2cd6561c"
+        },
+        "total": 600.0,
+        "category": "Transaction",
+        "description": "",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "accountId": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T06:27:47.807Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:27:47.807Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8b90fbd650c1e0e39d5aa"
+        },
+        "total": 5000.0,
+        "category": "Salary",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T06:39:11.754Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:39:11.754Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bd8a8fb3bf568fa50d5c"
+        },
+        "total": 200.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "accountId": {
+            "$oid": "67f8bba46701c9fe485262ef"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T06:58:18.374Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:58:18.374Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bddd8fb3bf568fa50d64"
+        },
+        "total": 5000.0,
+        "category": "Salary",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T06:59:41.539Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T06:59:41.539Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8becb6ac9cbfe2cd65620"
+        },
+        "total": 200.0,
+        "category": "Transfer",
+        "description": "Transfer from: demo demo",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "accountId": {
+            "$oid": "67f8be646ac9cbfe2cd6561e"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T07:03:39.211Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:03:39.211Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8bf626ac9cbfe2cd65621"
+        },
+        "total": 1.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f8a9f76ac9cbfe2cd65615"
+        },
+        "accountId": {
+            "$oid": "67f8a9f86ac9cbfe2cd65616"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T07:06:09.702Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:06:09.702Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f8c3d4bd650c1e0e39d5b7"
+        },
+        "total": 15000.0,
+        "category": "Salary",
+        "description": "",
+        "userId": {
+            "$oid": "67f8b1ab7dae01f0628c9669"
+        },
+        "accountId": {
+            "$oid": "67f8b1ab7dae01f0628c966a"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T07:25:08.406Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T07:25:08.406Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67f9126d1695a50dcc499308"
+        },
+        "total": 1.2312313E+07,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f911cf1695a50dcc4992fe"
+        },
+        "accountId": {
+            "$oid": "67f911cf1695a50dcc4992ff"
+        },
+        "createdAt": {
+            "$date": "2025-04-11T13:00:28.662Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-11T13:00:28.662Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb619b28797a84fb0cd5e1"
+        },
+        "total": 2000.0,
+        "category": "Salary",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "createdAt": {
+            "$date": "2025-04-13T07:02:51.255Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T07:02:51.255Z"
+        }
+    },
+    {
+        "_id": {
+            "$oid": "67fb7be728797a84fb0cd5e6"
+        },
+        "total": 100.0,
+        "category": "Other",
+        "description": "",
+        "userId": {
+            "$oid": "67f79f6f6701c9fe485262eb"
+        },
+        "accountId": {
+            "$oid": "67f79f6f6701c9fe485262ec"
+        },
+        "createdAt": {
+            "$date": "2025-04-13T08:55:02.915Z"
+        },
+        "updatedAt": {
+            "$date": "2025-04-13T08:55:02.915Z"
+        }
+    }
+]
